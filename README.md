@@ -14,10 +14,9 @@ by [John Papa](http://twitter.com/john_papa)
    ```
 
 1. Install the npm packages
+
+   ```bash
    npm run quick
-
-   ```
-
    ```
 
 ## What's in the App
