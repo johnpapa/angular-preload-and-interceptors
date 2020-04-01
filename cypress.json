@@ -1,6 +1,0 @@
-{
-  "ignoreTestFiles": "/**/examples/*",
-  "env": {
-    "port": "7626"
-  }
-}
