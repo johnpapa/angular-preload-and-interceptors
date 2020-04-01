@@ -40,7 +40,7 @@ import { OnDemandPreloadService } from '../strategies';
         </a>
       </ul>
       <div>
-        <button class="button is-dark" (click)="preloadAll()">
+        <button class="button is-dark btn-preload-all" (click)="preloadAll()">
           Preload All
         </button>
       </div>

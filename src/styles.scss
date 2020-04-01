@@ -166,6 +166,8 @@ button.link {
   cursor: pointer;
 }
 
-button.button.btn-login {
+button.button.btn-login,
+button.button.btn-preload-all {
+  margin-top: 16px;
   color: #fff;
 }
