@@ -8,7 +8,7 @@
     {
       "id": "HeroBert",
       "name": "Bert",
-      "description": "Chimney sweep, sidewlak chalk artist, lamp lighter, and unsung hero"
+      "description": "Chimney sweep, sidewalk chalk artist, lamp lighter, and unsung hero"
     },
     {
       "id": "HeroGeorge",
@@ -23,7 +23,7 @@
     {
       "id": "HeroNanna",
       "name": "Katie Nanna",
-      "description": "Underappreciated"
+      "description": "Way underappreciated"
     },
     {
       "id": "HeroAdmiral",
@@ -38,24 +38,14 @@
   ],
   "villains": [
     {
-      "id": "VillainMadelyn",
-      "name": "Madelyn",
-      "description": "the cat whisperer"
+      "id": "VillainDaewsSr",
+      "name": "Mr. Dawes Sr.",
+      "description": "I once knew a main with a wodden leg named Smith"
     },
     {
-      "id": "VillainHaley",
-      "name": "Haley",
-      "description": "pen wielder"
-    },
-    {
-      "id": "VillainElla",
-      "name": "Ella",
-      "description": "fashionista"
-    },
-    {
-      "id": "VillainLandon",
-      "name": "Landon",
-      "description": "Mandalorian mauler"
+      "id": "VillainWilkins",
+      "name": "Mr Wilkins",
+      "description": "What's up with these bank characters?"
     }
   ]
 }
