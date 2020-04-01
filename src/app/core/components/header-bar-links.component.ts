@@ -7,10 +7,18 @@ import { Component } from '@angular/core';
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a href="https://github.com/johnpapa/angular-preload" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/johnpapa/angular-preload"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fab fa-github fa-2x" aria-hidden="true"></i>
             </a>
-            <a href="https://twitter.com/john_papa" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://twitter.com/john_papa"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
             </a>
           </div>
