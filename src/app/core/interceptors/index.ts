@@ -12,19 +12,11 @@ export * from './log-http.interceptor';
 export * from './transform-response.interceptor';
 
 export const httpInterceptorProviders = [
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: LogHttpInterceptor,
-    multi: true
-  },
-  // { provide: HTTP_INTERCEPTORS, useClass: EnsureSSLInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: LogHttpInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: EnsureSSLInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: CSRFInterceptor, multi: true },
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TransformResponseInterceptor,
-    multi: true
-  }
+  { provide: HTTP_INTERCEPTORS, useClass: TransformResponseInterceptor, multi: true }
 ];
 
 /**
