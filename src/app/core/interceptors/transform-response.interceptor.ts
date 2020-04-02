@@ -11,31 +11,18 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TransformResponseInterceptor implements HttpInterceptor {
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       map(event => {
         if (event instanceof HttpResponse) {
           if (event.body.data) {
-            console.log(`HTTP: Response transformed`);
+            console.group(`HTTP: Response transformed`);
             const body = event.body.data;
+            console.table(body);
+            console.groupEnd();
             return event.clone({ body });
           }
-
-          //   if (event.url && event.url.indexOf('speakers') >= 0 && Array.isArray(event.body)) {
-          //     let body = event.body.map(speaker => {
-          //       if (speaker.name.match(/rey/i)) {
-          //         speaker.name = 'Rey Skywalker';
-          //       }
-          //       return speaker;
-          //     });
-          //     console.log(`HTTP: Request transformed`);
-          //     return event.clone({ body });
-          //   }
           return event.clone(); // undefined means dont change it
-          // return event.clone(undefined); // undefined means dont change it
         }
       })
     );

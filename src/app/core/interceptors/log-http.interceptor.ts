@@ -7,53 +7,29 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { finalize } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class LogHttpInterceptor implements HttpInterceptor {
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const started = Date.now();
     this.logRequest(req);
-    return next
-      .handle(req)
-      .pipe(finalize(() => this.logResponse(req, started)));
+    return next.handle(req).pipe(tap(event => this.logResponse(event, req, started)));
   }
 
   private logRequest(req: HttpRequest<any>) {
     console.group('HTTP: Log Http Request');
-    let headerList: {
-      key: string;
-      values: string;
-    }[] = [];
-    req.headers.keys().map(key => {
-      headerList.push({ key, values: req.headers.getAll(key).toString() });
-    });
     console.log(`${req.method} "${req.urlWithParams}"`);
-    console.table(headerList);
     console.groupEnd();
   }
 
-  private logResponse(req: HttpRequest<any>, started: number) {
-    // Log when response observable either completes or errors
+  private logResponse(event: HttpEvent<any>, req: HttpRequest<any>, started: number) {
     if (event instanceof HttpResponse) {
-      console.group('HTTP: Log Http Response');
+      console.group('******HTTP: Log Http Response');
       const elapsed = Date.now() - started;
-      const { ok, status, url, type, statusText, headers } = event;
-      const responseInfo = {
-        type,
-        url,
-        ok,
-        status,
-        statusText,
-        headers
-      };
       console.log(
-        `HTTP: Response for ${req.urlWithParams} took ${elapsed} ms.`
+        `HTTP: Response for ${req.urlWithParams}\nreturned with status ${event.status}\nand took ${elapsed} ms`
       );
-      console.table(responseInfo);
       console.groupEnd();
     }
   }
