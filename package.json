@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "map": "source-map-explorer dist/angular-preload/*es2015*.js*",
     "quick": "concurrently \"npm run backend\" \"npm run start-ng\"",
-    "backend": "json-server --watch db.json --routes routes.json --port 7627 --middlewares ./node_modules/json-server-reset"
+    "backend": "json-server --watch db.json --routes routes.json --port 7627 --delay 1000 --middlewares ./node_modules/json-server-reset"
   },
   "private": true,
   "dependencies": {
