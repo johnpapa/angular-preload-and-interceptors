@@ -5,13 +5,27 @@ import { TransformResponseInterceptor } from './transform-response.interceptor';
 import { LogHttpInterceptor } from './log-http.interceptor';
 import { EnsureSSLInterceptor } from './ensure-ssl.interceptor';
 import { LogHeadersInterceptor } from './log-headers.interceptor';
+import { BusyInterceptor } from './busy-http.interceptor';
 
 export const httpInterceptorProviders = [
+  /**
+   * Log Http: Must be first because it logs the request, before anythign else can happen.
+   * Since it happens last, it also logs the final state of the response.
+   */
+  { provide: HTTP_INTERCEPTORS, useClass: BusyInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: LogHttpInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: EnsureSSLInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: CSRFInterceptor, multi: true },
+  /**
+   * Log headers: Must come after the headers are stuffed.
+   */
   { provide: HTTP_INTERCEPTORS, useClass: LogHeadersInterceptor, multi: true },
+  /**
+   * Transform Response: Because this operators on the response, this must
+   * be listed after the Log Http interceptor because it is the
+   * first interceptor to modify the response.
+   */
   { provide: HTTP_INTERCEPTORS, useClass: TransformResponseInterceptor, multi: true }
 ];
 

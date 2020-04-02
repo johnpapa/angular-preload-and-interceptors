@@ -8,7 +8,7 @@ import {
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { prefix } from './http-config';
+import { prefixRes } from './http-config';
 
 @Injectable()
 export class TransformResponseInterceptor implements HttpInterceptor {
@@ -17,7 +17,7 @@ export class TransformResponseInterceptor implements HttpInterceptor {
       map(event => {
         if (event instanceof HttpResponse) {
           if (event.body.data) {
-            console.group(`${prefix} Transform Response`);
+            console.groupCollapsed(`${prefixRes} Transform Response`);
             const body = event.body.data;
             console.table(body);
             console.groupEnd();

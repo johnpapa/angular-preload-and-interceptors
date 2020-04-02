@@ -3,7 +3,7 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/c
 import { Observable } from 'rxjs';
 
 import { AuthService } from './auth.service';
-import { prefix } from './http-config';
+import { prefixReq } from './http-config';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -15,7 +15,7 @@ export class AuthInterceptor implements HttpInterceptor {
       setHeaders: { Authorization: authHeader, 'Content-Type': 'application/json' }
     });
 
-    console.group(`${prefix} Auth`);
+    console.groupCollapsed(`${prefixReq} Auth`);
     console.log(`Adding Auth header`);
     console.groupEnd();
     // Pass on the cloned request instead of the original request.
