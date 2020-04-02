@@ -2,7 +2,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { CSRFInterceptor } from './csrf.interceptor';
 import { TransformResponseInterceptor } from './transform-response.interceptor';
-import { LogResponseTimeInterceptor } from './log-response.interceptor';
 import { LogHttpInterceptor } from './log-http.interceptor';
 import { EnsureSSLInterceptor } from './ensure-ssl.interceptor';
 
@@ -10,18 +9,20 @@ export * from './auth.interceptor';
 export * from './csrf.interceptor';
 export * from './ensure-ssl.interceptor';
 export * from './log-http.interceptor';
-export * from './log-response.interceptor';
 export * from './transform-response.interceptor';
 
 export const httpInterceptorProviders = [
-  // { provide: HTTP_INTERCEPTORS, useClass: LogResponseTimeInterceptor, multi: true },
-  // { provide: HTTP_INTERCEPTORS, useClass: EnsureSSLInterceptor, multi: true },
-  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  { provide: HTTP_INTERCEPTORS, useClass: CSRFInterceptor, multi: true },
-  // { provide: HTTP_INTERCEPTORS, useClass: TransformResponseInterceptor, multi: true },
   {
     provide: HTTP_INTERCEPTORS,
     useClass: LogHttpInterceptor,
+    multi: true
+  },
+  // { provide: HTTP_INTERCEPTORS, useClass: EnsureSSLInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: CSRFInterceptor, multi: true },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TransformResponseInterceptor,
     multi: true
   }
 ];

@@ -1,51 +1,59 @@
 {
-  "heroes": [
-    {
-      "id": "HeroMaryPoppins",
-      "name": "Mary Poppins",
-      "description": "practically perfect in every way"
-    },
-    {
-      "id": "HeroBert",
-      "name": "Bert",
-      "description": "Chimney sweep, sidewalk chalk artist, lamp lighter, and unsung hero"
-    },
-    {
-      "id": "HeroGeorge",
-      "name": "George W. Banks",
-      "description": "Works at Dawes Tomes Mousley Grubbs Fidelity Fiduciary Bank"
-    },
-    {
-      "id": "HeroWinnifred",
-      "name": "Winnifred Banks",
-      "description": "Active in the Women's Votes suffragette movement"
-    },
-    {
-      "id": "HeroNanna",
-      "name": "Katie Nanna",
-      "description": "Way underappreciated"
-    },
-    {
-      "id": "HeroAdmiral",
-      "name": "Admiral Boom",
-      "description": "Fires canon. We need more of him"
-    },
-    {
-      "id": "HeroUncle",
-      "name": "Uncle Albert",
-      "description": "He loves to laugh ..."
-    }
-  ],
-  "villains": [
-    {
-      "id": "VillainDaewsSr",
-      "name": "Mr. Dawes Sr.",
-      "description": "I once knew a main with a wodden leg named Smith"
-    },
-    {
-      "id": "VillainWilkins",
-      "name": "Mr Wilkins",
-      "description": "What's up with these bank characters?"
-    }
-  ]
+  "heroes": {
+    "data": [
+      {
+        "id": "HeroMaryPoppins",
+        "name": "Mary Poppins",
+        "description": "practically perfect in every way",
+        "quotes": [
+          { "id": 1, "quote": "supercalifragilisticexpealidicious" },
+          { "id": 2, "quote": "spit spot" }
+        ]
+      },
+      {
+        "id": "HeroBert",
+        "name": "Bert",
+        "description": "Chimney sweep, sidewalk chalk artist, lamp lighter, and unsung hero"
+      },
+      {
+        "id": "HeroGeorge",
+        "name": "George W. Banks",
+        "description": "Works at Dawes Tomes Mousley Grubbs Fidelity Fiduciary Bank"
+      },
+      {
+        "id": "HeroWinnifred",
+        "name": "Winnifred Banks",
+        "description": "Active in the Women's Votes suffragette movement"
+      },
+      {
+        "id": "HeroNanna",
+        "name": "Katie Nanna",
+        "description": "Way underappreciated"
+      },
+      {
+        "id": "HeroAdmiral",
+        "name": "Admiral Boom",
+        "description": "Fires canon. We need more of him"
+      },
+      {
+        "id": "HeroUncle",
+        "name": "Uncle Albert",
+        "description": "He loves to laugh ..."
+      }
+    ]
+  },
+  "villains": {
+    "data": [
+      {
+        "id": "VillainDawesSr",
+        "name": "Mr. Dawes Sr.",
+        "description": "I once knew a main with a wodden leg named Smith"
+      },
+      {
+        "id": "VillainWilkins",
+        "name": "Mr Wilkins",
+        "description": "What's up with these bank characters?"
+      }
+    ]
+  }
 }
