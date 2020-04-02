@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { prefix } from './http-config';
 
 @Injectable()
 export class EnsureSSLInterceptor implements HttpInterceptor {
@@ -13,7 +14,9 @@ export class EnsureSSLInterceptor implements HttpInterceptor {
       url: req.url.replace('http://', 'https://')
     });
     // send the cloned, "secure" request to the next handler.
-    console.log(`HTTP: Rerouting all traffic to SSL`);
+    console.group(`${prefix} SSL`);
+    console.log(`Rerouting all traffic to SSL`);
+    console.groupEnd();
     return next.handle(secureReq);
   }
 }

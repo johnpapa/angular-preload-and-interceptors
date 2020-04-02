@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { prefix } from './http-config';
 
 @Injectable({ providedIn: 'root' })
 export class CSRFInterceptor implements HttpInterceptor {
@@ -11,7 +12,9 @@ export class CSRFInterceptor implements HttpInterceptor {
     // // }
     // const clonedReq = req.clone({ headers });
     const clonedReq = req.clone({ setHeaders: { 'x-csrf-token': 'your-csrf-token-goes-here' } });
-    console.log(`HTTP: Adding CSRF`);
+    console.group(`${prefix} CSRF`);
+    console.log(`Adding CSRF header`);
+    console.groupEnd();
     return next.handle(clonedReq);
   }
 }

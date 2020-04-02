@@ -1,12 +1,7 @@
-import {
-  HttpInterceptor,
-  HttpHandler,
-  HttpRequest,
-  HttpEvent,
-  HttpResponse
-} from '@angular/common/http';
+import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { prefix } from './http-config';
 
 @Injectable()
 export class LogHeadersInterceptor implements HttpInterceptor {
@@ -16,7 +11,7 @@ export class LogHeadersInterceptor implements HttpInterceptor {
   }
 
   private logRequest(req: HttpRequest<any>) {
-    console.group('HTTP: Log Http Request Headers');
+    console.group(`${prefix} Headers`);
     let headerList: {
       key: string;
       values: string;
