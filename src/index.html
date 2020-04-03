@@ -1,20 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Heroes Angular</title>
+    <base href="/" />
 
-<head>
-  <meta charset="utf-8">
-  <title>Heroes Angular</title>
-  <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+      integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
-    crossorigin="anonymous">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
+  <body>
+    <app-root></app-root>
+    <script>
+      // Hamburger code
+      document.addEventListener('DOMContentLoaded', () => {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(
+          document.querySelectorAll('.navbar-burger'),
+          0
+        );
 
-<body>
-  <app-root></app-root>
-</body>
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+          // Add a click event on each of them
+          $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+              // Get the target from the "data-target" attribute
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
 
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
+            });
+          });
+        }
+      });
+    </script>
+  </body>
 </html>
