@@ -7,9 +7,14 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class SessionService {
+  private _isLoggedIn = false;
   private sessionStateSubject = new BehaviorSubject<boolean>(false);
   accessToken: string;
-  isLoggedIn = false;
+
+  public get isLoggedIn(): boolean {
+    return this._isLoggedIn;
+  }
+
   readOnly = false;
   sessionState$ = this.sessionStateSubject.asObservable();
 
@@ -27,11 +32,11 @@ export class SessionService {
         if (res?.accessToken) {
           this.accessToken = res.accessToken;
           this.sessionStateSubject.next(true);
-          this.isLoggedIn = true;
+          this._isLoggedIn = true;
           return true;
         } else {
           this.sessionStateSubject.next(false);
-          this.isLoggedIn = false;
+          this._isLoggedIn = false;
           return false;
         }
       })
@@ -45,6 +50,6 @@ export class SessionService {
   logout() {
     this.accessToken = null;
     this.sessionStateSubject.next(false);
-    this.isLoggedIn = false;
+    this._isLoggedIn = false;
   }
 }
