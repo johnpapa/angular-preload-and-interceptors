@@ -1,26 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { SessionService } from '..';
 
 @Component({
   selector: 'app-header-bar-brand',
   template: `
     <div class="navbar-brand">
-      <a
-        class="navbar-item"
-        href="https://angular.io/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a class="navbar-item" href="https://angular.io/" target="_blank" rel="noopener noreferrer">
         <i class="fab js-logo fa-angular fa-2x" aria-hidden="true"></i>
       </a>
       <a class="navbar-item nav-home" router-link="/">
         <span class="tour">TOUR</span> <span class="of">OF</span>
         <span class="heroes">HEROES</span>
       </a>
+      <div class="navbar-login-state">
+        {{ loginState }}
+      </div>
       <button
-        class="link navbar-burger burger"
+        class="link navbar-burger burger "
         aria-label="menu"
         aria-expanded="false"
-        data-target="navbarBasicExample"
+        data-target="navbarLinks"
       >
         <span aria-hidden="true"></span> <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -28,4 +28,17 @@ import { Component } from '@angular/core';
     </div>
   `
 })
-export class HeaderBarBrandComponent {}
+export class HeaderBarBrandComponent implements OnDestroy {
+  private subs = new Subscription();
+  loginState: string;
+
+  constructor(private sessionService: SessionService) {
+    this.subs.add(
+      this.sessionService.sessionState$.subscribe(state => (this.loginState = state.message))
+    );
+  }
+
+  ngOnDestroy() {
+    this.subs.unsubscribe();
+  }
+}

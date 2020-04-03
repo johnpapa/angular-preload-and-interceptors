@@ -15,9 +15,4 @@ import { Component } from '@angular/core';
     </header>
   `
 })
-export class HeaderBarComponent {
-  bar() {
-    let x = 123;
-    const foo = `asd ${x} asd asd`;
-  }
-}
+export class HeaderBarComponent {}

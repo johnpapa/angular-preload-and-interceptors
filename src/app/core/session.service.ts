@@ -5,10 +5,20 @@ import { environment } from 'src/environments/environment';
 import { User } from './model';
 import { BehaviorSubject } from 'rxjs';
 
+export interface SessionState {
+  loggedIn: boolean;
+  message: string;
+}
+
+const notSignedInMessage = `Not signed in`;
+
 @Injectable({ providedIn: 'root' })
 export class SessionService {
   private _isLoggedIn = false;
-  private sessionStateSubject = new BehaviorSubject<boolean>(false);
+  private sessionStateSubject = new BehaviorSubject<SessionState>({
+    loggedIn: false,
+    message: notSignedInMessage
+  });
   accessToken: string;
 
   public get isLoggedIn(): boolean {
@@ -30,13 +40,13 @@ export class SessionService {
     return this.http.post<{ accessToken: string }>(loginUrl, body).pipe(
       map(res => {
         if (res?.accessToken) {
+          const message = `Welcome ${email}`;
           this.accessToken = res.accessToken;
-          this.sessionStateSubject.next(true);
+          this.sessionStateSubject.next({ loggedIn: true, message });
           this._isLoggedIn = true;
           return true;
         } else {
-          this.sessionStateSubject.next(false);
-          this._isLoggedIn = false;
+          this.logout();
           return false;
         }
       })
@@ -49,7 +59,7 @@ export class SessionService {
 
   logout() {
     this.accessToken = null;
-    this.sessionStateSubject.next(false);
+    this.sessionStateSubject.next({ loggedIn: false, message: notSignedInMessage });
     this._isLoggedIn = false;
   }
 }

@@ -1,7 +1,5 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { OnDemandPreloadService } from '../strategies';
-import { Subscription } from 'rxjs';
-import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-nav',
@@ -49,11 +47,6 @@ import { SessionService } from '../session.service';
         </a>
       </ul>
       <div>
-        <p class="session-state">
-          {{ loginState }}
-        </p>
-      </div>
-      <div>
         <button class="button is-dark btn-preload-all" (click)="preloadAll()">
           Preload All
         </button>
@@ -61,20 +54,8 @@ import { SessionService } from '../session.service';
     </nav>
   `
 })
-export class NavComponent implements OnDestroy {
-  private subs = new Subscription();
-  loginState: string;
-
-  constructor(
-    private preloadOnDemandService: OnDemandPreloadService,
-    private sessionService: SessionService
-  ) {
-    this.subs.add(
-      this.sessionService.sessionState$.subscribe(
-        state => (this.loginState = `Logged ${state ? 'in' : 'out'}`)
-      )
-    );
-  }
+export class NavComponent {
+  constructor(private preloadOnDemandService: OnDemandPreloadService) {}
 
   preloadAll() {
     this.preloadOnDemandService.startPreload('*');
@@ -82,9 +63,5 @@ export class NavComponent implements OnDestroy {
 
   preloadBundle(routePath) {
     this.preloadOnDemandService.startPreload(routePath);
-  }
-
-  ngOnDestroy() {
-    this.subs.unsubscribe();
   }
 }
