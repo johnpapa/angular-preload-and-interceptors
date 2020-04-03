@@ -13,12 +13,14 @@ import {
   OptInPreloadStrategy,
   OnDemandPreloadStrategy
 } from './core';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, declarations],
   imports: [
     BrowserModule,
     HttpClientModule,
+    SharedModule,
     AppStoreModule,
     externalModules,
     RouterModule.forRoot(

@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-admin',
   template: `
     <div class="content-container">
       <div class="content-title-group">
-        <h2 class="title">Admin</h2>
+        <h2 class="title">Auth Failed</h2>
         <div>
-          <p>This is a page you can't get to unless logged in</p>
+          <p>Authorization Failed</p>
+          <a routerLink="/login">
+            <span>Try to log in</span>
+          </a>
         </div>
       </div>
     </div>
   `
 })
-export class AdminComponent {}
+export class AuthFailedComponent {}

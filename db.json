@@ -1,4 +1,11 @@
 {
+  "users": [
+    {
+      "email": "john@contoso.com",
+      "password": "$2a$10$Hdks3dRdkXoAVkt0It9ciu9GWoqH11IbBdVS.b8MfXvmINN7NZJeC",
+      "id": 1
+    }
+  ],
   "heroes": {
     "data": [
       {
@@ -6,8 +13,14 @@
         "name": "Mary Poppins",
         "description": "practically perfect in every way",
         "quotes": [
-          { "id": 1, "quote": "supercalifragilisticexpealidicious" },
-          { "id": 2, "quote": "spit spot" }
+          {
+            "id": 1,
+            "quote": "supercalifragilisticexpealidicious"
+          },
+          {
+            "id": 2,
+            "quote": "spit spot"
+          }
         ]
       },
       {

@@ -117,6 +117,9 @@ div.card-content {
 }
 .card {
   margin-bottom: 2em;
+  &.login {
+    width: 400px;
+  }
 }
 
 label.label {
@@ -170,4 +173,8 @@ button.button.btn-login,
 button.button.btn-preload-all {
   margin-top: 16px;
   color: #fff;
+}
+
+.session-state {
+  color: $primary;
 }

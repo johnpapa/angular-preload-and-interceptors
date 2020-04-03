@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { NotFoundComponent, AuthGuard, LoginComponent } from './core';
+import { NotFoundComponent, AuthGuard, LoginComponent, AuthFailedComponent } from './core';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'heroes' },
@@ -24,5 +24,6 @@ export const routes: Routes = [
     loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
   },
   { path: 'login', component: LoginComponent },
+  { path: 'authfailed', component: AuthFailedComponent },
   { path: '**', component: NotFoundComponent }
 ];
