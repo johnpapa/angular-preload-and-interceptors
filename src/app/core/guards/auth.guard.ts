@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     }
 
     const url = `/${route.path}`;
-    this.router.navigate(['/login'], { queryParams: { redirectTo: url } });
+    this.router.navigate(['/signin'], { queryParams: { redirectTo: url } });
     console.warn(this.deniedMessage);
     return this.sessionService.isLoggedIn;
   }
@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     if (this.sessionService.isLoggedIn) {
       return true;
     }
-    this.router.navigate(['/login'], {
+    this.router.navigate(['/signin'], {
       queryParams: { redirectTo: state.url }
     });
     console.warn(this.deniedMessage);

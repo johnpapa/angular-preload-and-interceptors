@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { NotFoundComponent, AuthGuard, LoginComponent, AuthFailedComponent } from './core';
+import { NotFoundComponent, AuthGuard, SignInComponent, AuthFailedComponent } from './core';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'movies' },
@@ -34,7 +34,7 @@ export const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
   },
-  { path: 'login', component: LoginComponent },
+  { path: 'signin', component: SignInComponent },
   { path: 'authfailed', component: AuthFailedComponent },
   { path: '**', component: NotFoundComponent }
 ];

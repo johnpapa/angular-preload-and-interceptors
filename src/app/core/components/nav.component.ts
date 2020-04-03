@@ -42,8 +42,8 @@ import { OnDemandPreloadService } from '../strategies';
         >
           <span>About</span>
         </a>
-        <a routerLink="/login" routerLinkActive="router-link-active">
-          <span>Login</span>
+        <a routerLink="/signin" routerLinkActive="router-link-active">
+          <span>Sign in</span>
         </a>
       </ul>
       <div>

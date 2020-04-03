@@ -117,7 +117,7 @@ div.card-content {
 }
 .card {
   margin-bottom: 2em;
-  &.login {
+  &.signin {
     width: 400px;
   }
 }
@@ -169,7 +169,7 @@ button.link {
   cursor: pointer;
 }
 
-button.button.btn-login,
+button.button.btn-signin,
 button.button.btn-preload-all {
   margin-top: 16px;
   color: #fff;
@@ -183,8 +183,9 @@ button.button.btn-preload-all {
   background-color: #363636;
 }
 
-.navbar-login-state {
+.navbar-signin-state {
   align-items: center;
   display: flex;
   margin-left: 50px;
+  min-width: 250px;
 }

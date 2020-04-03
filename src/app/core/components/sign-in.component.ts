@@ -6,7 +6,7 @@ import { SessionService } from '../session.service';
 
 @Component({
   template: `
-    <div class="card login">
+    <div class="card signin">
       <header class="card-header">
         <p class="card-header-title">
           Sign In
@@ -52,14 +52,14 @@ import { SessionService } from '../session.service';
           class="card-footer-item"
           [className]="'save-button'"
           [iconClasses]="'fas fa-sign-in-alt'"
-          (clicked)="login()"
-          label="Login"
+          (clicked)="signin()"
+          label="Sign in"
         ></app-button-footer>
       </footer>
     </div>
   `
 })
-export class LoginComponent implements OnDestroy {
+export class SignInComponent implements OnDestroy {
   private subs = new Subscription();
   email: string = 'john@contoso.com';
   password: string = '1234';
@@ -74,10 +74,10 @@ export class LoginComponent implements OnDestroy {
     return this.sessionService.isLoggedIn;
   }
 
-  login() {
+  signin() {
     this.subs.add(
       this.sessionService
-        .login(this.email, this.password)
+        .signin(this.email, this.password)
         .pipe(
           mergeMap(result => this.route.queryParams),
           map(qp => qp['redirectTo'])

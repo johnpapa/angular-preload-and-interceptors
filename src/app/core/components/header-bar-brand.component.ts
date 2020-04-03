@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SessionService } from '..';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-header-bar-brand',
@@ -13,8 +13,8 @@ import { SessionService } from '..';
         <span class="tour">TOUR</span> <span class="of">OF</span>
         <span class="heroes">HEROES</span>
       </a>
-      <div class="navbar-login-state">
-        {{ loginState }}
+      <div class="navbar-signin-state">
+        {{ signinState }}
       </div>
       <button
         class="link navbar-burger burger "
@@ -30,11 +30,11 @@ import { SessionService } from '..';
 })
 export class HeaderBarBrandComponent implements OnDestroy {
   private subs = new Subscription();
-  loginState: string;
+  signinState: string;
 
   constructor(private sessionService: SessionService) {
     this.subs.add(
-      this.sessionService.sessionState$.subscribe(state => (this.loginState = state.message))
+      this.sessionService.sessionState$.subscribe(state => (this.signinState = state.message))
     );
   }
 

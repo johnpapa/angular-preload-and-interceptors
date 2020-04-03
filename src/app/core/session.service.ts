@@ -30,14 +30,14 @@ export class SessionService {
 
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string) {
+  signin(email: string, password: string) {
     const root = environment.API;
-    const loginUrl = `${root}/login/`;
+    const signinUrl = `${root}/signin/`;
     const body: Partial<User> = {
       email, // 'john@contoso.com',
       password // '1234'
     };
-    return this.http.post<{ accessToken: string }>(loginUrl, body).pipe(
+    return this.http.post<{ accessToken: string }>(signinUrl, body).pipe(
       map(res => {
         if (res?.accessToken) {
           const message = `Welcome ${email}`;

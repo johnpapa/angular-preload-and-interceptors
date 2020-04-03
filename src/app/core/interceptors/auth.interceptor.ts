@@ -42,7 +42,7 @@ export class AuthInterceptor implements HttpInterceptor {
   handle401(error: HttpErrorResponse) {
     const authResHeader = error.headers.get('WWW-Authenticate');
     if (/is expired/.test(authResHeader)) {
-      this.router.navigate(['login']);
+      this.router.navigate(['signin']);
       // this.sessionService.refreshToken();
     } else {
       this.router.navigate(['authfailed']);
