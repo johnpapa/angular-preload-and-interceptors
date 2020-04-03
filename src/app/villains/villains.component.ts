@@ -1,11 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Villain } from '../../core';
-import { VillainService } from '../villain.service';
+import { Villain } from '../core';
+import { VillainService } from './villain.service';
 
 @Component({
   selector: 'app-villains',
-  templateUrl: './villains.component.html'
+  template: `
+    <div class="content-container">
+      <app-list-header
+        title="Villains"
+        (add)="enableAddMode()"
+        (refresh)="getVillains()"
+      ></app-list-header>
+      <div class="columns is-multiline is-variable">
+        <div class="column is-8" *ngIf="villains$ | async as villains">
+          <app-villain-list
+            *ngIf="!selected"
+            [villains]="villains"
+            (selected)="select($event)"
+            (deleted)="askToDelete($event)"
+          ></app-villain-list>
+          <app-villain-detail
+            *ngIf="selected"
+            [villain]="selected"
+            (unselect)="clear()"
+            (save)="save($event)"
+          ></app-villain-detail>
+        </div>
+      </div>
+
+      <app-modal
+        class="modal-villain"
+        [message]="message"
+        [isOpen]="showModal"
+        (handleNo)="closeModal()"
+        (handleYes)="deleteVillain()"
+      ></app-modal>
+    </div>
+  `
 })
 export class VillainsComponent implements OnInit {
   selected: Villain;

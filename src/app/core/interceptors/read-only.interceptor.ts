@@ -29,9 +29,6 @@ export class ReadOnlyInterceptor implements HttpInterceptor {
      * Put whitelist of readonly routes here
      */
     const whitelist = [/api\/heroes/gi];
-    return whitelist.some(wl => {
-      const re = new RegExp(wl);
-      return re.test(req.url);
-    });
+    return whitelist.some(wl => wl.test(req.url));
   }
 }
