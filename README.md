@@ -62,6 +62,50 @@ Here is a list of the features in this app:
 
 The app uses a JSON server for a backend by default. This allows you to run the code without needing any database engines or cloud accounts. It also supports authorized routes, which this app takes advantage of. iEnjoy!
 
+### Interceptors
+
+Sequence is super important with interceptors. The flow in sequence for requests, and then in the opposite order for responses.
+
+```typescript
+export const httpInterceptorProviders = [
+  /**
+   *  Log Http:
+   *    This logs all HTTP traffic.
+   *    Should be first-ish so it can log the Http call happening in and out (last).
+   */
+  { provide: HTTP_INTERCEPTORS, useClass: LogHttpInterceptor, multi: true },
+  /**
+   * ReadOnly:
+   *    Do this before we add headers, get busy, or make the call.
+   */
+  { provide: HTTP_INTERCEPTORS, useClass: ReadOnlyInterceptor, multi: true },
+  /**
+   * SSL, Auth, CSRF:
+   *    Now that it has passed the readonly test, we want to stuff headers and proceed.
+   */
+  { provide: HTTP_INTERCEPTORS, useClass: EnsureSSLInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: CSRFInterceptor, multi: true },
+  /**
+   *  Log headers:
+   *    Must come after the headers are stuffed.
+   */
+  { provide: HTTP_INTERCEPTORS, useClass: LogHeadersInterceptor, multi: true },
+  /**
+   *  Busy:
+   *    Should be first so it can turn on first, and off last.
+   */
+  { provide: HTTP_INTERCEPTORS, useClass: BusyInterceptor, multi: true },
+  /**
+   * Transform Response:
+   *    this could happen anywhere in this particular stream,
+   *    as long as it happens after the first Http log.
+   *    Why? Because the interceptors are FIFO
+   */
+  { provide: HTTP_INTERCEPTORS, useClass: TransformResponseInterceptor, multi: true },
+];
+```
+
 ## Problems or Suggestions
 
 [Open an issue here](/issues)
