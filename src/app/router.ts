@@ -2,15 +2,17 @@ import { Routes } from '@angular/router';
 import { NotFoundComponent, AuthGuard, LoginComponent, AuthFailedComponent } from './core';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'heroes' },
+  { path: '', pathMatch: 'full', redirectTo: 'about' },
   {
     path: 'heroes',
     loadChildren: () => import('./heroes/heroes.module').then(m => m.HeroesModule),
+    canActivate: [AuthGuard],
     data: { preload: true }
   },
   {
     path: 'villains',
     loadChildren: () => import('./villains/villains.module').then(m => m.VillainsModule),
+    canActivate: [AuthGuard],
     data: { preload: true }
   },
   {
