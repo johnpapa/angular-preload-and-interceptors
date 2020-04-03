@@ -60,7 +60,7 @@ Here is a list of the features in this app:
 
 ### Why JSON Server?
 
-The app uses a JSON server for a backend by default. This allows you to run the code without needing any database engines or cloud accounts. Enjoy!
+The app uses a JSON server for a backend by default. This allows you to run the code without needing any database engines or cloud accounts. It also supports authorized routes, which this app takes advantage of. iEnjoy!
 
 ## Problems or Suggestions
 
