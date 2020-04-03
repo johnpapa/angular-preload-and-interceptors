@@ -38,6 +38,10 @@ export class SessionService {
     );
   }
 
+  refreshToken() {
+    // TODO: implement a refresh
+  }
+
   logout() {
     this.accessToken = null;
     this.sessionStateSubject.next(false);
