@@ -1,5 +1,8 @@
 {
   "/api/*": "/$1",
   "/hero": "/heroes",
-  "/reset": "/reset"
+  "/reset": "/reset",
+  "movies": 664,
+  "heroes": 660,
+  "villains": 660
 }

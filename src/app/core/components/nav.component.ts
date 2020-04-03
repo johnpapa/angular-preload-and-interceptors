@@ -10,9 +10,16 @@ import { SessionService } from '../session.service';
       <p class="menu-label">Menu</p>
       <ul class="menu-list">
         <a
+          routerLink="/movies"
+          routerLinkActive="router-link-active"
+          (mouseover)="preloadBundle('movies')"
+        >
+          <span>Movies</span>
+        </a>
+        <a
           routerLink="/heroes"
           routerLinkActive="router-link-active"
-          (mouseover)="preloadBundle('router')"
+          (mouseover)="preloadBundle('heroes')"
         >
           <span>Heroes</span>
         </a>

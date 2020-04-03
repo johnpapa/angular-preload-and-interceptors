@@ -15,7 +15,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
-  exports: [RouterModule, HeroesComponent],
+  exports: [RouterModule],
   declarations: [HeroesComponent, HeroListComponent, HeroDetailComponent]
 })
 export class HeroesModule {}

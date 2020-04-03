@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  ChangeDetectionStrategy,
-  TrackByFunction
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { Villain } from '../core';
 
 @Component({
@@ -49,13 +42,6 @@ export class VillainListComponent {
   @Input() villains: Villain[];
   @Output() deleted = new EventEmitter<Villain>();
   @Output() selected = new EventEmitter<Villain>();
-
-  // byId(villain: Villain) {
-  //   return villain.id;
-  // }
-  foo(villain: Villain): string {
-    return villain.id;
-  }
 
   trackByVillain(index: number, villain: Villain): string {
     return villain.id;
