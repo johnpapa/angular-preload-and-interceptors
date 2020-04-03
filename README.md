@@ -9,8 +9,8 @@ by [John Papa](http://twitter.com/john_papa)
 1. Clone this repository
 
    ```bash
-   git clone https://github.com/johnpapa/angular-preload.git
-   cd angular-preload
+   git clone https://github.com/johnpapa/angular-preload-and-interceptors.git tour
+   cd tour
    ```
 
 1. Install the npm packages
@@ -36,6 +36,10 @@ Here is a list of the features in this app:
   - [x] App served on one port which can access API on another port proxy or CORS)
   - [x] HTTP - Uses most common client http libraries for each framework
   - [x] HTTP interceptors
+  - [x] API routes are restricted to those who sign in except `movies`
+  - [x] API route `movies` is readonly to all (no sign in required)
+- [x] Auth
+  - [x] Sign in and sign out with json-server-auth
 - [x] Styling
   - [x] Bulma
   - [x] SASS
