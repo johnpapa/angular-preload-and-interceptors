@@ -5,7 +5,7 @@ import { TransformResponseInterceptor } from './transform-response.interceptor';
 import { LogHttpInterceptor } from './log-http.interceptor';
 import { EnsureSSLInterceptor } from './ensure-ssl.interceptor';
 import { LogHeadersInterceptor } from './log-headers.interceptor';
-import { BusyInterceptor } from './busy-http.interceptor';
+import { BusyInterceptor } from './busy.interceptor';
 
 export const httpInterceptorProviders = [
   /**

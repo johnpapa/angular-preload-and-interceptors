@@ -8,10 +8,10 @@ export declare var navigator;
 @Injectable({ providedIn: 'root' })
 export class NetworkAwarePreloadStrategy implements PreloadingStrategy {
   preload(route: Route, load: () => Observable<any>): Observable<any> {
-    return this.hasGoodConnection() ? load() : EMPTY;
+    return this.hasGoodConnection(route) ? load() : EMPTY;
   }
 
-  hasGoodConnection(): boolean {
+  hasGoodConnection(route: Route): boolean {
     const conn = navigator.connection;
     if (conn) {
       if (conn.saveData) {
@@ -24,6 +24,7 @@ export class NetworkAwarePreloadStrategy implements PreloadingStrategy {
         return false;
       }
     }
+    console.log(`[🚤Preloading] - Network aware strategy 👉 ${route.path}`);
     return true;
   }
 }
