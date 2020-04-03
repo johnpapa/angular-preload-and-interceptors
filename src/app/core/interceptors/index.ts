@@ -12,7 +12,13 @@ export const httpInterceptorProviders = [
    * Log Http: Must be first because it logs the request, before anythign else can happen.
    * Since it happens last, it also logs the final state of the response.
    */
+  /**
+   * Busy: Should be first so it can turn on first, and off last.
+   */
   { provide: HTTP_INTERCEPTORS, useClass: BusyInterceptor, multi: true },
+  /**
+   * Busy: Should be first-ish so it can log the Http call happening.
+   */
   { provide: HTTP_INTERCEPTORS, useClass: LogHttpInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: EnsureSSLInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

@@ -17,10 +17,10 @@ export class BusyInterceptor implements HttpInterceptor {
     this.busyService.increment(msg);
     return next.handle(req).pipe(
       finalize(() => {
+        this.busyService.decrement();
         console.groupCollapsed(`${prefixRes} Busy Spinner`);
         console.log('Decrementing');
         console.groupEnd();
-        this.busyService.decrement();
       })
     );
   }

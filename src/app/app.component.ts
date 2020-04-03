@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { BusyService } from './core/busy.service';
 import { delay } from 'rxjs/operators';
-export class Customer {
-  public id: number;
-  public name: string;
-}
+
 @Component({
   selector: 'app-root',
   template: `
