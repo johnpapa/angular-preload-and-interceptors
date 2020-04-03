@@ -20,7 +20,8 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const authHeader = this.sessionService.accessToken;
     const authReq = req.clone({
-      setHeaders: { Authorization: `Bearer ${authHeader}`, 'Content-Type': 'application/json' }
+      setHeaders: { Authorization: `Bearer ${authHeader}`, 'Content-Type': 'application/json' },
+      withCredentials: true
     });
 
     console.groupCollapsed(`${prefixReq} Auth`);
