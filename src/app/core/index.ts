@@ -3,4 +3,4 @@ export * from './guards';
 export * from './interceptors';
 export * from './model';
 export * from './strategies';
-export * from './login/login.component';
+export * from './session.service';

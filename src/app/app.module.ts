@@ -11,12 +11,11 @@ import {
   declarations,
   httpInterceptorProviders,
   OptInPreloadStrategy,
-  OnDemandPreloadStrategy,
-  LoginComponent
+  OnDemandPreloadStrategy
 } from './core';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, declarations],
+  declarations: [AppComponent, declarations],
   imports: [
     BrowserModule,
     HttpClientModule,

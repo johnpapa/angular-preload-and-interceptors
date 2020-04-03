@@ -6,6 +6,7 @@ import { LogHttpInterceptor } from './log-http.interceptor';
 import { EnsureSSLInterceptor } from './ensure-ssl.interceptor';
 import { LogHeadersInterceptor } from './log-headers.interceptor';
 import { BusyInterceptor } from './busy.interceptor';
+import { ReadOnlyInterceptor } from './read-only.interceptor';
 
 export const httpInterceptorProviders = [
   /**
@@ -13,20 +14,28 @@ export const httpInterceptorProviders = [
    * Since it happens last, it also logs the final state of the response.
    */
   /**
-   * Busy: Should be first so it can turn on first, and off last.
-   */
-  { provide: HTTP_INTERCEPTORS, useClass: BusyInterceptor, multi: true },
-  /**
-   * Busy: Should be first-ish so it can log the Http call happening.
+   * Log Http: Should be first-ish so it can log the Http call happening.
    */
   { provide: HTTP_INTERCEPTORS, useClass: LogHttpInterceptor, multi: true },
-  { provide: HTTP_INTERCEPTORS, useClass: EnsureSSLInterceptor, multi: true },
-  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  { provide: HTTP_INTERCEPTORS, useClass: CSRFInterceptor, multi: true },
   /**
    * Log headers: Must come after the headers are stuffed.
    */
   { provide: HTTP_INTERCEPTORS, useClass: LogHeadersInterceptor, multi: true },
+  /**
+   * ReadOnly:
+   */
+  { provide: HTTP_INTERCEPTORS, useClass: ReadOnlyInterceptor, multi: true },
+  /**
+   * SSL, Auth, CSRF:
+   *   Now that it has passed the readonly test, we want to stuff headers and proceed.
+   */
+  { provide: HTTP_INTERCEPTORS, useClass: EnsureSSLInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: CSRFInterceptor, multi: true },
+  /**
+   * Busy: Should be first so it can turn on first, and off last.
+   */
+  { provide: HTTP_INTERCEPTORS, useClass: BusyInterceptor, multi: true },
   /**
    * Transform Response: Because this operators on the response, this must
    * be listed after the Log Http interceptor because it is the

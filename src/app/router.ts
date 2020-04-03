@@ -5,14 +5,12 @@ export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'heroes' },
   {
     path: 'heroes',
-    loadChildren: () =>
-      import('./heroes/heroes.module').then(m => m.HeroesModule),
+    loadChildren: () => import('./heroes/heroes.module').then(m => m.HeroesModule),
     data: { preload: true }
   },
   {
     path: 'villains',
-    loadChildren: () =>
-      import('./villains/villains.module').then(m => m.VillainsModule),
+    loadChildren: () => import('./villains/villains.module').then(m => m.VillainsModule),
     data: { preload: true }
   },
   {

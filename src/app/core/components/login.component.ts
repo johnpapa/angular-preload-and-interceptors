@@ -2,9 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
-
-import { LoginService } from './login.service';
-import { UserProfileService } from '../user-profile.service';
+import { SessionService } from '../session.service';
 
 @Component({
   template: `
@@ -13,43 +11,33 @@ import { UserProfileService } from '../user-profile.service';
         <h2 class="title">Login</h2>
         <div>
           <p>Click here to log in. Who needs a password?</p>
-          <button
-            class="button is-dark btn-login"
-            (click)="login()"
-            *ngIf="!isLoggedIn"
-          >
+          <button class="button is-dark btn-login" (click)="login()" *ngIf="!isLoggedIn">
             Login
           </button>
-          <button
-            class="button is-dark btn-login"
-            (click)="logout()"
-            *ngIf="isLoggedIn"
-          >
+          <button class="button is-dark btn-login" (click)="logout()" *ngIf="isLoggedIn">
             Logout
           </button>
         </div>
       </div>
     </div>
-  `,
-  providers: [LoginService]
+  `
 })
 export class LoginComponent implements OnDestroy {
   private subs = new Subscription();
 
   constructor(
-    private loginService: LoginService,
+    private sessionService: SessionService,
     private route: ActivatedRoute,
-    private router: Router,
-    private userProfileService: UserProfileService
+    private router: Router
   ) {}
 
   public get isLoggedIn(): boolean {
-    return this.userProfileService.isLoggedIn;
+    return this.sessionService.isLoggedIn;
   }
 
   login() {
     this.subs.add(
-      this.loginService
+      this.sessionService
         .login()
         .pipe(
           mergeMap(loginResult => this.route.queryParams),
@@ -57,7 +45,7 @@ export class LoginComponent implements OnDestroy {
         )
         .subscribe(redirectTo => {
           console.info(`Successfully logged in`);
-          if (this.userProfileService.isLoggedIn) {
+          if (this.sessionService.isLoggedIn) {
             const url = redirectTo ? [redirectTo] : ['/dashboard'];
             this.router.navigate(url);
           }
@@ -66,7 +54,7 @@ export class LoginComponent implements OnDestroy {
   }
 
   logout() {
-    this.loginService.logout();
+    this.sessionService.logout();
     console.info(`Successfully logged out`);
   }
 

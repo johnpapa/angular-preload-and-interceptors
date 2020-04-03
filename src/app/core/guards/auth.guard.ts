@@ -8,30 +8,27 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-import { UserProfileService } from '../user-profile.service';
+import { SessionService } from '../session.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   deniedMessage = 'Unauthorized access denied';
 
-  constructor(
-    private userProfileService: UserProfileService,
-    private router: Router
-  ) {}
+  constructor(private sessionService: SessionService, private router: Router) {}
 
   canLoad(route: Route) {
-    if (this.userProfileService.isLoggedIn) {
+    if (this.sessionService.isLoggedIn) {
       return true;
     }
 
     const url = `/${route.path}`;
     this.router.navigate(['/login'], { queryParams: { redirectTo: url } });
     console.warn(this.deniedMessage);
-    return this.userProfileService.isLoggedIn;
+    return this.sessionService.isLoggedIn;
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.userProfileService.isLoggedIn) {
+    if (this.sessionService.isLoggedIn) {
       return true;
     }
     this.router.navigate(['/login'], {
