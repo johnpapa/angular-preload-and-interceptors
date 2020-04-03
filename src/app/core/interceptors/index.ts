@@ -9,38 +9,18 @@ import { BusyInterceptor } from './busy.interceptor';
 import { ReadOnlyInterceptor } from './read-only.interceptor';
 
 export const httpInterceptorProviders = [
-  /**
-   * Log Http: Must be first because it logs the request, before anythign else can happen.
-   * Since it happens last, it also logs the final state of the response.
-   */
-  /**
-   * Log Http: Should be first-ish so it can log the Http call happening.
-   */
+  // Log Http: Should be first-ish so it can log the Http call happening in and out (last).
   { provide: HTTP_INTERCEPTORS, useClass: LogHttpInterceptor, multi: true },
-  /**
-   * Log headers: Must come after the headers are stuffed.
-   */
+  // Log headers: Must come after the headers are stuffed.
   { provide: HTTP_INTERCEPTORS, useClass: LogHeadersInterceptor, multi: true },
-  /**
-   * ReadOnly:
-   */
+  //ReadOnly: Do this before we add headers, get busy, or make the call.
   { provide: HTTP_INTERCEPTORS, useClass: ReadOnlyInterceptor, multi: true },
-  /**
-   * SSL, Auth, CSRF:
-   *   Now that it has passed the readonly test, we want to stuff headers and proceed.
-   */
+  //SSL, Auth, CSRF:Now that it has passed the readonly test, we want to stuff headers and proceed.
   { provide: HTTP_INTERCEPTORS, useClass: EnsureSSLInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: CSRFInterceptor, multi: true },
-  /**
-   * Busy: Should be first so it can turn on first, and off last.
-   */
+  // Busy: Should be first so it can turn on first, and off last.
   { provide: HTTP_INTERCEPTORS, useClass: BusyInterceptor, multi: true },
-  /**
-   * Transform Response: Because this operators on the response, this must
-   * be listed after the Log Http interceptor because it is the
-   * first interceptor to modify the response.
-   */
   { provide: HTTP_INTERCEPTORS, useClass: TransformResponseInterceptor, multi: true }
 ];
 
