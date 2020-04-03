@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BusyService } from './core/busy.service';
-import { delay } from 'rxjs/operators';
+import { delay, observeOn } from 'rxjs/operators';
+import { asapScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,12 +20,17 @@ import { delay } from 'rxjs/operators';
         </main>
       </div>
     </div>
-  `
+  `,
 })
 export class AppComponent {
   busy = false;
 
   constructor(private busyService: BusyService) {
-    this.busyService.busyState$.pipe(delay(0)).subscribe(bs => (this.busy = bs.isBusy));
+    // busyService.busyState$.pipe(delay(0)).subscribe((bs) => (this.busy = bs.isBusy));
+
+    busyService.busyState$
+      // asapScheduler ensures this is async; remove this and look in console to see nasty error without this
+      .pipe(observeOn(asapScheduler))
+      .subscribe((bs) => (this.busy = bs.isBusy));
   }
 }
