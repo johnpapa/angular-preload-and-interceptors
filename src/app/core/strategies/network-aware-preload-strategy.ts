@@ -14,16 +14,14 @@ export class NetworkAwarePreloadStrategy implements PreloadingStrategy {
     const conn = navigator.connection;
     if (conn) {
       if (conn.saveData) {
-        return false; // save data mode is enabled, so dont preload
+        return false;
       }
-      const avoidTheseConnections = ['slow-2g', '2g' /* , '3g', '4g' */];
+      const avoidTheseConnections = ['slow-2g', '2g', '3g' /* ,  '4g' */];
       const effectiveType = conn.effectiveType || '';
-      console.log(effectiveType);
       if (avoidTheseConnections.includes(effectiveType)) {
         return false;
       }
     }
-    console.log(`[🚤Preloading] - Network aware strategy 👉 ${route.path}`);
     return true;
   }
 }
