@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { PreloadingStrategy, Route } from '@angular/router';
 import { Observable, EMPTY } from 'rxjs';
 
-// avoid typing issues for now
-export declare var navigator;
+.export declare var navigator;
 
 @Injectable({ providedIn: 'root' })
 export class NetworkAwarePreloadStrategy implements PreloadingStrategy {
