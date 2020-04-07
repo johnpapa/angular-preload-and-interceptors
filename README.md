@@ -1,4 +1,4 @@
-# Tour of Heroes - Angular Preload Demo
+# Tour of Heroes - Angular Preload and Http Interceptors Demo
 
 This project was created to help represent a fundamental app written with Angular that demonstrates preload strategies, guards, and http interceptors. The heroes and villains theme is used throughout the app.
 
