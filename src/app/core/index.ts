@@ -1,3 +1,5 @@
+// another barrel
+// './core'
 export * from './components';
 export * from './guards';
 export * from './interceptors';
