@@ -14,7 +14,6 @@ import { NavComponent } from './nav.component';
 import { NotFoundComponent } from './not-found.component';
 import { SignInComponent } from './sign-in.component';
 
-// known as a barrel
 export const declarations = [
   AuthFailedComponent,
   NavComponent,
