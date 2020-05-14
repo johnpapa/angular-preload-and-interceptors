@@ -5,13 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { routes } from './router';
 import { AppComponent } from './app.component';
 import { AppStoreModule } from './store/store.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule, NoPreloading, PreloadAllModules } from '@angular/router';
 import { externalModules } from './build-specific';
 import {
   declarations,
   httpInterceptorProviders,
   OptInPreloadStrategy,
-  OnDemandPreloadStrategy
+  OnDemandPreloadStrategy,
+  NetworkAwarePreloadStrategy,
 } from './core';
 import { SharedModule } from './shared/shared.module';
 
@@ -67,11 +68,15 @@ import { SharedModule } from './shared/shared.module';
        */
       {
         // enableTracing: true,
-        preloadingStrategy: OnDemandPreloadStrategy
+        preloadingStrategy: NoPreloading, // 👈 No preloading at all
+        // preloadingStrategy: PreloadAllModules, // 👈 Preload everything from the start
+        // preloadingStrategy: OptInPreloadStrategy, // 👈 Select modules to preload
+        // preloadingStrategy: NetworkAwarePreloadStrategy, // 👈 Preload only if on fast network
+        // preloadingStrategy: OnDemandPreloadStrategy, // 👈 Preload when a user has a specific behavior
       }
-    )
+    ),
   ],
   providers: [httpInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
