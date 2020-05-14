@@ -9,17 +9,13 @@ import { VillainsComponent } from './villains.component';
 const routes: Routes = [
   {
     path: '',
-    component: VillainsComponent
-  }
+    component: VillainsComponent,
+  },
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
   exports: [RouterModule],
-  declarations: [
-    VillainsComponent,
-    VillainListComponent,
-    VillainDetailComponent
-  ]
+  declarations: [VillainsComponent, VillainListComponent, VillainDetailComponent],
 })
 export class VillainsModule {}
