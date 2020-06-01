@@ -19,5 +19,11 @@
       "port": 9229,
       "preLaunchTask": "func: host start"
     }
+  ],
+  "compounds": [
+    {
+      "name": "Angular and API",
+      "configurations": ["Attach to Node Functions", "Launch Angular"]
+    }
   ]
 }
