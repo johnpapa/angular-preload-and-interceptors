@@ -12,7 +12,7 @@ export class LogHeadersInterceptor implements HttpInterceptor {
 
   private logRequest(req: HttpRequest<any>) {
     console.groupCollapsed(`${prefixReq} Headers`);
-    let headerList: {
+    const headerList: {
       key: string;
       values: string;
     }[] = [];

@@ -61,8 +61,8 @@ import { SessionService } from '../session.service';
 })
 export class SignInComponent implements OnDestroy {
   private subs = new Subscription();
-  email: string = 'john@contoso.com';
-  password: string = '1234';
+  email = 'john@contoso.com';
+  password = '1234';
 
   constructor(
     private sessionService: SessionService,
