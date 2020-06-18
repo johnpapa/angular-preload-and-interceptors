@@ -106,6 +106,6 @@ export class VillainsComponent implements OnInit {
   }
 
   update(villain: Villain) {
-    this.villainService.update(villain);
+    this.villainService.updateOneInCache(villain);
   }
 }
