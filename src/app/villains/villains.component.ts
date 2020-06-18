@@ -55,7 +55,8 @@ export class VillainsComponent implements OnInit {
   }
 
   add(villain: Villain) {
-    this.villainService.add(villain);
+    villain.id = villain.name.trim().replace(/[^\w]|_/g, ''); // need id; remove punctuations
+    this.villainService.addOneToCache(villain);
   }
 
   askToDelete(villain: Villain) {
