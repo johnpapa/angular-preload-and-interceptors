@@ -77,9 +77,8 @@ export class VillainsComponent implements OnInit {
   deleteVillain() {
     this.closeModal();
     if (this.villainToDelete) {
-      this.villainService
-        .delete(this.villainToDelete.id)
-        .subscribe(() => (this.villainToDelete = null));
+      this.villainService.removeOneFromCache(this.villainToDelete.id);
+      this.villainToDelete = null;
     }
     this.clear();
   }
