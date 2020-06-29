@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "map": "source-map-explorer dist/angular-preload/*es2015*.js*",
-    "quick": "concurrently \"npm run backend\" \"npm run start-ng\"",
+    "full-stack": "concurrently \"npm run backend\" \"npm run start-ng\"",
     "backend": "json-server-auth --watch db.json --routes routes.json --port 7627 --delay 1000 --middlewares ./node_modules/json-server-reset"
   },
   "private": true,
