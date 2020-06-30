@@ -26,9 +26,9 @@ export class ReadOnlyInterceptor implements HttpInterceptor {
 
   okIfReadOnly(req: HttpRequest<any>) {
     /**
-     * Put whitelist of readonly routes here
+     * Put allowList of readonly routes here
      */
-    const whitelist = [/api\/heroes/gi];
-    return whitelist.some(wl => wl.test(req.url));
+    const allowList = [/api\/heroes/gi];
+    return allowList.some((item) => item.test(req.url));
   }
 }
