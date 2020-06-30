@@ -30,7 +30,7 @@ import { Hero } from '../core';
       </li>
     </ul>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroListComponent {
   @Input() heroes: Hero[];
