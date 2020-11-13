@@ -112,10 +112,10 @@ export const httpInterceptorProviders = [
 
 ## Resources
 
-- [VS Code](https://code.visualstudio.com?wt.mc_id=angularpreloadinterceptors-github-jopapa)
-- [Azure Free Trial](https://azure.microsoft.com/en-us/free/?wt.mc_id=angularpreloadinterceptors-github-jopapa)
-- [VS Code Extension for Node on Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack&WT.mc_id=angularpreloadinterceptors-github-jopapa)
-- [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode?wt.mc_id=angularpreloadinterceptors-github-jopapa)
-- [VS Code - macOS keys](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf?WT.mc_id=angularpreloadinterceptors-github-jopapa)
-- [VS Code - Windows keys](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf?WT.mc_id=angularpreloadinterceptors-github-jopapa)
-- [Debugging Angular in VS Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial?wt.mc_id=angularpreloadinterceptors-github-jopapa)
+- [VS Code](https://code.visualstudio.com/?WT.mc_id=javascript-0000-jopapa)
+- [Azure Free Trial](https://azure.microsoft.com/free/?WT.mc_id=javascript-0000-jopapa)
+- [VS Code Extension for Node on Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack&WT.mc_id=javascript-0000-jopapa)
+- [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode?WT.mc_id=javascript-0000-jopapa)
+- [VS Code - macOS keys](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf?WT.mc_id=javascript-0000-jopapa)
+- [VS Code - Windows keys](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf?WT.mc_id=javascript-0000-jopapa)
+- [Debugging Angular in VS Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial?WT.mc_id=javascript-0000-jopapa)
