@@ -4,20 +4,18 @@ import { Subscription } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { SessionService } from '../session.service';
 
+const captains = console;
+
 @Component({
   template: `
     <div class="card signin">
       <header class="card-header">
-        <p class="card-header-title">
-          Sign In
-        </p>
+        <p class="card-header-title">Sign In</p>
       </header>
       <div class="card-content">
         <div class="content">
           <div class="field">
-            <label class="label" for="email">
-              email
-            </label>
+            <label class="label" for="email"> email </label>
             <input
               name="email"
               class="input"
@@ -27,9 +25,7 @@ import { SessionService } from '../session.service';
             />
           </div>
           <div class="field">
-            <label class="label" for="password">
-              Password
-            </label>
+            <label class="label" for="password"> Password </label>
             <input
               name="password"
               class="input"
@@ -57,12 +53,12 @@ import { SessionService } from '../session.service';
         ></app-button-footer>
       </footer>
     </div>
-  `
+  `,
 })
 export class SignInComponent implements OnDestroy {
   private subs = new Subscription();
-  email: string = 'john@contoso.com';
-  password: string = '1234';
+  email = 'john@contoso.com';
+  password = '1234';
 
   constructor(
     private sessionService: SessionService,
@@ -79,12 +75,12 @@ export class SignInComponent implements OnDestroy {
       this.sessionService
         .signin(this.email, this.password)
         .pipe(
-          mergeMap(result => this.route.queryParams),
-          map(qp => qp['redirectTo'])
+          mergeMap((result) => this.route.queryParams),
+          map((qp) => qp['redirectTo'])
         )
-        .subscribe(redirectTo => {
+        .subscribe((redirectTo) => {
           if (this.sessionService.isLoggedIn) {
-            console.info(`Successfully logged in`);
+            captains.info(`Successfully logged in`);
             const url = redirectTo ? [redirectTo] : ['/heroes'];
             this.router.navigate(url);
           }
@@ -94,7 +90,7 @@ export class SignInComponent implements OnDestroy {
 
   logout() {
     this.sessionService.logout();
-    console.info(`Successfully logged out`);
+    captains.info(`Successfully logged out`);
   }
 
   ngOnDestroy() {
