@@ -14,7 +14,7 @@ import { MovieService } from './movie.service';
         </div>
       </div>
     </div>
-  `
+  `,
 })
 export class MoviesComponent implements OnInit {
   movies$: Observable<Movie[]>;

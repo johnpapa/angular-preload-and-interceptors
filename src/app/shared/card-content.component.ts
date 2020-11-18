@@ -10,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
         <ng-content></ng-content>
       </div>
     </div>
-  `
+  `,
 })
 export class CardContentComponent implements OnInit {
   @Input() name;

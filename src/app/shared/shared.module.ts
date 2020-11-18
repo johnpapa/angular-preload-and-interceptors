@@ -10,12 +10,12 @@ const components = [
   ButtonFooterComponent,
   CardContentComponent,
   ListHeaderComponent,
-  ModalComponent
+  ModalComponent,
 ];
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   declarations: [components],
-  exports: [components, FormsModule, ReactiveFormsModule]
+  exports: [components, FormsModule, ReactiveFormsModule],
 })
 export class SharedModule {}

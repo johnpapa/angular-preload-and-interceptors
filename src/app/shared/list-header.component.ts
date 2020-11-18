@@ -14,7 +14,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
         <i class="fas fa-sync" aria-hidden="true"></i>
       </button>
     </div>
-  `
+  `,
 })
 export class ListHeaderComponent implements OnInit {
   @Input() title: string;

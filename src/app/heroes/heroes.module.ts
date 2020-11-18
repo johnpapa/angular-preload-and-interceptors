@@ -10,12 +10,12 @@ const routes: Routes = [
   {
     path: '',
     component: HeroesComponent,
-  }
+  },
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
   exports: [RouterModule],
-  declarations: [HeroesComponent, HeroListComponent, HeroDetailComponent]
+  declarations: [HeroesComponent, HeroListComponent, HeroDetailComponent],
 })
 export class HeroesModule {}

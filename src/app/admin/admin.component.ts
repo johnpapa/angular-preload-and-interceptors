@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
       <div class="content-title-group">
         <h2 class="title">Admin</h2>
         <div>
-          <p>This is a page you can't get to unless logged in</p>
+          <p>This is an amazing Admin page</p>
         </div>
       </div>
     </div>
-  `
+  `,
 })
 export class AdminComponent {}

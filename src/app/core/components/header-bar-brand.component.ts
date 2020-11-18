@@ -26,7 +26,7 @@ import { SessionService } from '../session.service';
         <span aria-hidden="true"></span>
       </button>
     </div>
-  `
+  `,
 })
 export class HeaderBarBrandComponent implements OnDestroy {
   private subs = new Subscription();
@@ -34,7 +34,7 @@ export class HeaderBarBrandComponent implements OnDestroy {
 
   constructor(private sessionService: SessionService) {
     this.subs.add(
-      this.sessionService.sessionState$.subscribe(state => (this.signinState = state.message))
+      this.sessionService.sessionState$.subscribe((state) => (this.signinState = state.message))
     );
   }
 

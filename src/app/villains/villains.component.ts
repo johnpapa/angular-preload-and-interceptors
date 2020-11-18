@@ -37,7 +37,7 @@ import { VillainService } from './villain.service';
         (handleYes)="deleteVillain()"
       ></app-modal>
     </div>
-  `
+  `,
 })
 export class VillainsComponent implements OnInit {
   selected: Villain;

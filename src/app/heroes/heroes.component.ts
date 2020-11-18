@@ -37,7 +37,7 @@ import { HeroService } from './hero.service';
         (handleYes)="deleteHero()"
       ></app-modal>
     </div>
-  `
+  `,
 })
 export class HeroesComponent implements OnInit {
   selected: Hero;

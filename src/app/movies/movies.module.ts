@@ -8,13 +8,13 @@ import { MoviesComponent } from './movies.component';
 const routes: Routes = [
   {
     path: '',
-    component: MoviesComponent
-  }
+    component: MoviesComponent,
+  },
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
   exports: [RouterModule],
-  declarations: [MoviesComponent, MovieListComponent]
+  declarations: [MoviesComponent, MovieListComponent],
 })
 export class MoviesModule {}

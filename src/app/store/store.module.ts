@@ -9,10 +9,8 @@ import { entityConfig } from './entity-metadata';
   imports: [
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    EntityDataModule.forRoot(entityConfig)
+    EntityDataModule.forRoot(entityConfig),
   ],
-  providers: [
-    { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }
-  ]
+  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }],
 })
 export class AppStoreModule {}

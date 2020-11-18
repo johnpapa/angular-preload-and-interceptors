@@ -5,7 +5,7 @@ import {
   OnChanges,
   Output,
   SimpleChanges,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { Hero } from '../core';
@@ -23,9 +23,7 @@ import { Hero } from '../core';
       <div class="card-content">
         <div class="content">
           <div class="field" *ngIf="editingHero.id">
-            <label class="label" for="id">
-              id
-            </label>
+            <label class="label" for="id"> id </label>
             <input
               name="id"
               class="input"
@@ -36,9 +34,7 @@ import { Hero } from '../core';
             />
           </div>
           <div class="field">
-            <label class="label" for="name">
-              name
-            </label>
+            <label class="label" for="name"> name </label>
             <input
               name="name"
               class="input"
@@ -48,9 +44,7 @@ import { Hero } from '../core';
             />
           </div>
           <div class="field">
-            <label class="label" for="description">
-              description
-            </label>
+            <label class="label" for="description"> description </label>
             <input
               name="description"
               class="input"
@@ -81,7 +75,7 @@ import { Hero } from '../core';
       </footer>
     </div>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroDetailComponent implements OnChanges {
   @Input() hero: Hero;

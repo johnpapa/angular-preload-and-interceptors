@@ -20,7 +20,7 @@ export class OnDemandPreloadStrategy implements PreloadingStrategy {
        * switchMap could cancel previous call.
        * concatMap would make the multiple calls wait for each other.
        */
-      mergeMap(preloadOptions => {
+      mergeMap((preloadOptions) => {
         const shouldPreload = this.preloadCheck(route, preloadOptions);
         // console.log(`${shouldPreload ? '' : 'Not '}Preloading ${route.path}`);
         if (shouldPreload) {

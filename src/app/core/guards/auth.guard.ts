@@ -6,7 +6,7 @@ import {
   Route,
   Router,
   ActivatedRouteSnapshot,
-  RouterStateSnapshot
+  RouterStateSnapshot,
 } from '@angular/router';
 import { SessionService } from '../session.service';
 
@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
       return true;
     }
     this.router.navigate(['/signin'], {
-      queryParams: { redirectTo: state.url }
+      queryParams: { redirectTo: state.url },
     });
     console.warn(this.deniedMessage);
     return false;

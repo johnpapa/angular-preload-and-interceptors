@@ -15,7 +15,7 @@ import { Movie } from '../core';
       </li>
     </ul>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieListComponent {
   @Input() movies: Movie[];

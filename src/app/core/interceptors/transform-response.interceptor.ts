@@ -3,7 +3,7 @@ import {
   HttpHandler,
   HttpRequest,
   HttpEvent,
-  HttpResponse
+  HttpResponse,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -14,7 +14,7 @@ import { prefixRes } from './http-config';
 export class TransformResponseInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
-      map(event => {
+      map((event) => {
         if (event instanceof HttpResponse) {
           if (event.body.data) {
             console.groupCollapsed(`${prefixRes} Transform Response`);

@@ -27,7 +27,7 @@ import { Component } from '@angular/core';
       :host {
         width: 100%;
       }
-    `
-  ]
+    `,
+  ],
 })
 export class HeaderBarLinksComponent {}

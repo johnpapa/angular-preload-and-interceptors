@@ -36,7 +36,7 @@ import { Villain } from '../core';
       </li>
     </ul>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VillainListComponent {
   @Input() villains: Villain[];

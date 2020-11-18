@@ -22,6 +22,6 @@ import { Component } from '@angular/core';
         </p>
       </div>
     </div>
-  `
+  `,
 })
 export class AboutComponent {}

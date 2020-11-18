@@ -4,7 +4,7 @@ import {
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
-  HttpErrorResponse
+  HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable, throwError, EMPTY } from 'rxjs';
 
@@ -21,7 +21,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const authHeader = this.sessionService.accessToken;
     const authReq = req.clone({
       setHeaders: { Authorization: `Bearer ${authHeader}`, 'Content-Type': 'application/json' },
-      withCredentials: true
+      withCredentials: true,
     });
 
     console.groupCollapsed(`${prefixReq} Auth`);

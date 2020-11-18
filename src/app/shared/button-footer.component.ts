@@ -13,7 +13,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
     >
       <i [ngClass]="iconClasses"></i> <span>{{ label }}</span>
     </button>
-  `
+  `,
 })
 export class ButtonFooterComponent implements OnInit {
   @Input() label;

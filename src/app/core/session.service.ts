@@ -17,7 +17,7 @@ export class SessionService {
   private _isLoggedIn = false;
   private sessionStateSubject = new BehaviorSubject<SessionState>({
     loggedIn: false,
-    message: notSignedInMessage
+    message: notSignedInMessage,
   });
   accessToken: string;
 
@@ -35,10 +35,10 @@ export class SessionService {
     const signinUrl = `${root}/signin/`;
     const body: Partial<User> = {
       email, // 'john@contoso.com',
-      password // '1234'
+      password, // '1234'
     };
     return this.http.post<{ accessToken: string }>(signinUrl, body).pipe(
-      map(res => {
+      map((res) => {
         if (res?.accessToken) {
           const message = `Welcome ${email}`;
           this.accessToken = res.accessToken;

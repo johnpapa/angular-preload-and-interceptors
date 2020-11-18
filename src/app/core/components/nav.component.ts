@@ -47,12 +47,10 @@ import { OnDemandPreloadService } from '../strategies';
         </a>
       </ul>
       <div>
-        <button class="button is-dark btn-preload-all" (click)="preloadAll()">
-          Preload All
-        </button>
+        <button class="button is-dark btn-preload-all" (click)="preloadAll()">Preload All</button>
       </div>
     </nav>
-  `
+  `,
 })
 export class NavComponent {
   constructor(private preloadOnDemandService: OnDemandPreloadService) {}

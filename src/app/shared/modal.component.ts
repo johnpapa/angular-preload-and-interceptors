@@ -10,7 +10,7 @@ import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
           <p class="modal-card-title">Confirm</p>
         </header>
         <section class="modal-card-body">
-          {{message}}
+          {{ message }}
         </section>
         <footer class="modal-card-foot">
           <button class="button modal-no" (click)="onNo()">No</button>
@@ -18,7 +18,7 @@ import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
         </footer>
       </div>
     </div>
-  `
+  `,
 })
 export class ModalComponent implements OnInit {
   @Input() message;
@@ -30,9 +30,9 @@ export class ModalComponent implements OnInit {
 
   onNo = () => {
     this.handleNo.emit();
-  }
+  };
 
   onYes = () => {
     this.handleYes.emit();
-  }
+  };
 }

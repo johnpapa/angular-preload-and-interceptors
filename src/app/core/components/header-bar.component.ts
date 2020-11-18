@@ -13,6 +13,6 @@ import { Component } from '@angular/core';
         <app-header-bar-links></app-header-bar-links>
       </nav>
     </header>
-  `
+  `,
 })
 export class HeaderBarComponent {}
