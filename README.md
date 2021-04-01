@@ -16,7 +16,7 @@ by [John Papa](http://twitter.com/john_papa)
 1. Install the npm packages
 
    ```bash
-   npm run quick
+   npm run full-stack
    ```
 
 ## What's in the App
