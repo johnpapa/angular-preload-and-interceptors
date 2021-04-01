@@ -13,7 +13,9 @@
     "titleBar.inactiveForeground": "#15202b99",
     "statusBar.background": "#f9e64f",
     "statusBarItem.hoverBackground": "#f7df1e",
-    "statusBar.foreground": "#15202b"
+    "statusBar.foreground": "#15202b",
+    "statusBar.debuggingBackground": "#4f62f9",
+    "statusBar.debuggingForeground": "#e7e7e7"
   },
   "peacock.color": "#f9e64f",
   "azureFunctions.deploySubpath": "api",
