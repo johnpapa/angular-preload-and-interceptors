@@ -17,7 +17,7 @@ export class TransformResponseInterceptor implements HttpInterceptor {
       map((event) => {
         if (event instanceof HttpResponse) {
           if (event.body.data) {
-            console.groupCollapsed(`${prefixRes} Transform Response`);
+            console.groupCollapsed(`${prefixRes} 🚧 Transform Response`);
             const body = event.body.data;
             console.table(body);
             console.groupEnd();

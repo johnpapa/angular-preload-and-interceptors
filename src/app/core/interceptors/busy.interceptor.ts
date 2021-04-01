@@ -11,7 +11,7 @@ export class BusyInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const msg = req.method === 'GET' ? 'Loading ...' : 'Saving ...';
-    console.groupCollapsed(`${prefixReq} Busy Spinner`);
+    console.groupCollapsed(`${prefixReq} ⚙️ Busy Spinner`);
     console.log(msg);
     console.groupEnd();
     this.busyService.increment(msg);

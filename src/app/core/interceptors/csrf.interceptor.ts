@@ -12,7 +12,7 @@ export class CSRFInterceptor implements HttpInterceptor {
     // // }
     // const clonedReq = req.clone({ headers });
     const clonedReq = req.clone({ setHeaders: { 'x-csrf-token': 'your-csrf-token-goes-here' } });
-    console.groupCollapsed(`${prefixReq} CSRF`);
+    console.groupCollapsed(`${prefixReq} 🦹‍♀️ CSRF`);
     console.log(`Adding CSRF header`);
     console.groupEnd();
     return next.handle(clonedReq);
