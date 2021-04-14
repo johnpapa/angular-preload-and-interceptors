@@ -12,12 +12,13 @@ import { SessionService } from '../session.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
-  deniedMessage = 'Unauthorized access denied';
+  deniedMessage = '💂‍♀️ [Guard] - Auth Guard - Unauthorized access denied';
 
   constructor(private sessionService: SessionService, private router: Router) {}
 
   canLoad(route: Route) {
     if (this.sessionService.isLoggedIn) {
+      console.log(`💂‍♀️ [Guard] - Auth Guard - allowed`);
       return true;
     }
 
