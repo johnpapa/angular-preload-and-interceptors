@@ -19,16 +19,16 @@ export const routes: Routes = [
     loadChildren: () => import('./villains/villains.module').then((m) => m.VillainsModule),
     /**
      * Remove the guard and you can route to villains,
-     * but you still can't get to the data uness you are logged in
+     * but you still can't get to the data unless you are logged in
      */
     canActivate: [AuthGuard],
-    data: { preload: true },
+    // data: { preload: true },
   },
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
     canLoad: [AuthGuard],
-    data: { preload: true },
+    // data: { preload: true },
   },
   {
     path: 'about',
