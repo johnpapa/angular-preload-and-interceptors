@@ -72,7 +72,7 @@ import { SharedModule } from './shared/shared.module';
         // preloadingStrategy: PreloadAllModules, // 👈 Preload everything from the start
         // preloadingStrategy: OptInPreloadStrategy, // 👈 Select modules to preload
         // preloadingStrategy: NetworkAwarePreloadStrategy, // 👈 Preload only if on fast network
-        preloadingStrategy: OnDemandPreloadStrategy, // 👈 Preload when a user has a specific behavior
+        // preloadingStrategy: OnDemandPreloadStrategy, // 👈 Preload when a user has a specific behavior
         relativeLinkResolution: 'legacy',
       }
     ),
