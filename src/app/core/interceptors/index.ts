@@ -19,7 +19,7 @@ export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: CSRFInterceptor, multi: true },
   // Log headers: Must come after the headers are stuffed.
   { provide: HTTP_INTERCEPTORS, useClass: LogHeadersInterceptor, multi: true },
-  // Busy: Should be first so it can turn on first, and off last.
+  // Busy: Should be almost last on request, so it can turn and off when it comes out.
   { provide: HTTP_INTERCEPTORS, useClass: BusyInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: TransformResponseInterceptor, multi: true },
 ];
