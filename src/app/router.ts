@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-import { NotFoundComponent, AuthGuard, SignInComponent, AuthFailedComponent } from './core';
+import { NotFoundComponent, SignInComponent, AuthFailedComponent, authGuard } from './core';
+import { authLoadGuard } from './core/guards/auth-load.guard';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'movies' },
@@ -11,7 +12,7 @@ export const routes: Routes = [
   {
     path: 'heroes',
     loadChildren: () => import('./heroes/heroes.module').then((m) => m.HeroesModule),
-    canActivate: [AuthGuard],
+    canActivate: [authGuard],
     data: { preload: true },
   },
   {
@@ -21,13 +22,13 @@ export const routes: Routes = [
      * Remove the guard and you can route to villains,
      * but you still can't get to the data unless you are logged in
      */
-    canActivate: [AuthGuard],
+    canActivate: [authGuard],
     // data: { preload: true },
   },
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
-    canLoad: [AuthGuard],
+    canLoad: [authLoadGuard],
     // data: { preload: true },
   },
   {
