@@ -25,7 +25,8 @@ import { SharedModule } from './shared/shared.module';
     AppStoreModule,
     externalModules,
     RouterModule.forRoot(
-      routes,
+      routes
+
       /**
        * Preloading strategies:
        *  - https://angular.io/guide/router#custom-preloading-strategy
@@ -66,15 +67,7 @@ import { SharedModule } from './shared/shared.module';
        *  - npm i ngx-quicklink --save
        *  - https://github.com/mgechev/ngx-quicklink
        */
-      {
-        // enableTracing: true,
-        // preloadingStrategy: NoPreloading, // 👈 No preloading at all
-        // preloadingStrategy: PreloadAllModules, // 👈 Preload everything from the start
-        // preloadingStrategy: OptInPreloadStrategy, // 👈 Select modules to preload
-        // preloadingStrategy: NetworkAwarePreloadStrategy, // 👈 Preload only if on fast network
-        // preloadingStrategy: OnDemandPreloadStrategy, // 👈 Preload when a user has a specific behavior
-        relativeLinkResolution: 'legacy',
-      }
+      // { preloadingStrategy: OnDemandPreloadStrategy }
     ),
   ],
   providers: [httpInterceptorProviders],

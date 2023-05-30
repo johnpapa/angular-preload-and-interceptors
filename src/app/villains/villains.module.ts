@@ -5,11 +5,13 @@ import { SharedModule } from '../shared/shared.module';
 import { VillainDetailComponent } from './villain-detail.component';
 import { VillainListComponent } from './villain-list.component';
 import { VillainsComponent } from './villains.component';
+import { canDeactivateGuard } from '../core';
 
 const routes: Routes = [
   {
     path: '',
     component: VillainsComponent,
+    canDeactivate: [canDeactivateGuard],
   },
 ];
 

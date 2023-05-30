@@ -124,6 +124,5 @@
         }
       }
     }
-  },
-  "defaultProject": "angular-preload"
+  }
 }
