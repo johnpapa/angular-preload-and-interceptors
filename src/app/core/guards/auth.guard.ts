@@ -1,17 +1,9 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  CanActivateChild,
-  CanLoad,
-  Route,
-  Router,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { Route, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { SessionService } from '../session.service';
 
 @Injectable({ providedIn: 'root' })
-export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
+export class AuthGuard  {
   deniedMessage = '💂‍♀️ [Guard] - Auth Guard - Unauthorized access denied';
 
   constructor(private sessionService: SessionService, private router: Router) {}
