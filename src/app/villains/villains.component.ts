@@ -56,7 +56,8 @@ export class VillainsComponent implements OnInit, CanComponentDeactivate {
 
   canDeactivate() {
     // TODO: implement your logic here
-    return false;
+    let isOk = true;
+    return isOk;
   }
 
   add(villain: Villain) {
