@@ -1,8 +1,16 @@
 import { inject } from '@angular/core';
 import { SessionService } from '../session.service';
-import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivateFn,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
 
-export const authGuard = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+export const isAuthenticatedGuard: CanActivateFn = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+) => {
   const sessionService = inject(SessionService);
   const router = inject(Router);
   const deniedMessage = '💂‍♀️ [Guard] - Auth Guard - Unauthorized access denied';
