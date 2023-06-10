@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Villain } from '../core';
+import { CanComponentDeactivate, Villain } from '../core';
 import { VillainService } from './villain.service';
 
 @Component({
@@ -39,7 +39,7 @@ import { VillainService } from './villain.service';
     </div>
   `,
 })
-export class VillainsComponent implements OnInit {
+export class VillainsComponent implements OnInit, CanComponentDeactivate {
   selected: Villain;
   villains$: Observable<Villain[]>;
   message = '?';
@@ -52,6 +52,11 @@ export class VillainsComponent implements OnInit {
 
   ngOnInit() {
     this.getVillains();
+  }
+
+  canDeactivate() {
+    // TODO: implement your logic here
+    return false;
   }
 
   add(villain: Villain) {
