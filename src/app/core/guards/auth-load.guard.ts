@@ -1,9 +1,9 @@
 import { inject } from '@angular/core';
 import { SessionService } from '../session.service';
-import { Route } from '@angular/router';
+import { CanMatchFn, Route, UrlSegment } from '@angular/router';
 import { Router } from '@angular/router';
 
-export const authLoadGuard = (route: Route) => {
+export const authLoadGuard: CanMatchFn = (route: Route, segments: UrlSegment[]) => {
   const deniedMessage = '💂‍♀️ [Guard] - Auth Guard - Unauthorized access denied';
 
   const sessionService = inject(SessionService);
