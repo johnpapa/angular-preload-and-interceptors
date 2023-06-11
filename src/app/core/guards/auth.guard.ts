@@ -13,7 +13,7 @@ export const isAuthenticatedGuard: CanActivateFn = (
 ) => {
   const sessionService = inject(SessionService);
   const router = inject(Router);
-  const deniedMessage = '💂‍♀️ [Guard] - Auth Guard - Unauthorized access denied';
+  const deniedMessage = '💂‍♀️ [Guard] - Auth Guard - Unauthorized, access denied';
 
   if (sessionService.isLoggedIn) {
     console.log(`💂‍♀️ [Guard] - Auth Guard - allowed`);
