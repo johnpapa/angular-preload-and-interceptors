@@ -10,9 +10,3 @@ export const routes: Routes = [
     component: AboutComponent,
   },
 ];
-
-// @NgModule({
-//   declarations: [],
-//   imports: [CommonModule, RouterModule.forChild(routes)],
-// })
-// export class AboutModule {}
