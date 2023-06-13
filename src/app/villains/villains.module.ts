@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
+
 import { VillainDetailComponent } from './villain-detail.component';
 import { VillainListComponent } from './villain-list.component';
 import { VillainsComponent } from './villains.component';
@@ -16,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(routes), SharedModule, VillainsComponent, VillainListComponent, VillainDetailComponent],
+    imports: [CommonModule, RouterModule.forChild(routes), VillainsComponent, VillainListComponent, VillainDetailComponent],
     exports: [RouterModule],
 })
 export class VillainsModule {}
