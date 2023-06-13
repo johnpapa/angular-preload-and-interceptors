@@ -13,8 +13,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
-  exports: [RouterModule],
-  declarations: [MoviesComponent, MovieListComponent],
+    imports: [CommonModule, RouterModule.forChild(routes), SharedModule, MoviesComponent, MovieListComponent],
+    exports: [RouterModule],
 })
 export class MoviesModule {}

@@ -9,10 +9,13 @@ import {
 } from '@angular/core';
 
 import { Villain } from '../core';
+import { ButtonFooterComponent } from '../shared/button-footer.component';
+import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-villain-detail',
-  template: `
+    selector: 'app-villain-detail',
+    template: `
     <div class="card edit-detail">
       <header class="card-header">
         <p class="card-header-title">
@@ -75,7 +78,13 @@ import { Villain } from '../core';
       </footer>
     </div>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        NgIf,
+        FormsModule,
+        ButtonFooterComponent,
+    ],
 })
 export class VillainDetailComponent implements OnChanges {
   @Input() villain: Villain;

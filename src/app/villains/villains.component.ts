@@ -2,10 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CanComponentDeactivate, Villain } from '../core';
 import { VillainService } from './villain.service';
+import { ModalComponent } from '../shared/modal.component';
+import { VillainDetailComponent } from './villain-detail.component';
+import { VillainListComponent } from './villain-list.component';
+import { NgIf, AsyncPipe } from '@angular/common';
+import { ListHeaderComponent } from '../shared/list-header.component';
 
 @Component({
-  selector: 'app-villains',
-  template: `
+    selector: 'app-villains',
+    template: `
     <div class="content-container">
       <app-list-header
         title="Villains"
@@ -38,6 +43,15 @@ import { VillainService } from './villain.service';
       ></app-modal>
     </div>
   `,
+    standalone: true,
+    imports: [
+        ListHeaderComponent,
+        NgIf,
+        VillainListComponent,
+        VillainDetailComponent,
+        ModalComponent,
+        AsyncPipe,
+    ],
 })
 export class VillainsComponent implements OnInit, CanComponentDeactivate {
   selected: Villain;

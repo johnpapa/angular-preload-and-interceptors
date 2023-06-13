@@ -1,8 +1,9 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-modal',
-  template: `
+    selector: 'app-modal',
+    template: `
     <div class="modal" [ngClass]="{ 'is-active': this.isOpen }">
       <div class="modal-background"></div>
       <div class="modal-card">
@@ -19,6 +20,8 @@ import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
       </div>
     </div>
   `,
+    standalone: true,
+    imports: [NgClass],
 })
 export class ModalComponent implements OnInit {
   @Input() message;

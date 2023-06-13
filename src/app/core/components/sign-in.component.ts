@@ -3,11 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { SessionService } from '../session.service';
+import { ButtonFooterComponent } from '../../shared/button-footer.component';
+import { FormsModule } from '@angular/forms';
 
 const captains = console;
 
 @Component({
-  template: `
+    template: `
     <div class="card signin">
       <header class="card-header">
         <p class="card-header-title">Sign In</p>
@@ -54,6 +56,8 @@ const captains = console;
       </footer>
     </div>
   `,
+    standalone: true,
+    imports: [FormsModule, ButtonFooterComponent],
 })
 export class SignInComponent implements OnDestroy {
   private subs = new Subscription();

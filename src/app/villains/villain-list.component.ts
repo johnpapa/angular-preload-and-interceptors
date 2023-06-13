@@ -1,9 +1,12 @@
 import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { Villain } from '../core';
+import { ButtonFooterComponent } from '../shared/button-footer.component';
+import { CardContentComponent } from '../shared/card-content.component';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-villain-list',
-  template: `
+    selector: 'app-villain-list',
+    template: `
     <ul class="list">
       <li
         role="presentation"
@@ -36,7 +39,13 @@ import { Villain } from '../core';
       </li>
     </ul>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        NgFor,
+        CardContentComponent,
+        ButtonFooterComponent,
+    ],
 })
 export class VillainListComponent {
   @Input() villains: Villain[];
