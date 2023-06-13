@@ -7,7 +7,7 @@ import { VillainListComponent } from './villain-list.component';
 import { VillainsComponent } from './villains.component';
 import { canDeactivateGuard } from '../core';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: VillainsComponent,
@@ -15,8 +15,8 @@ const routes: Routes = [
   },
 ];
 
-@NgModule({
-    imports: [CommonModule, RouterModule.forChild(routes), VillainsComponent, VillainListComponent, VillainDetailComponent],
-    exports: [RouterModule],
-})
-export class VillainsModule {}
+// @NgModule({
+//     imports: [CommonModule, RouterModule.forChild(routes), VillainsComponent, VillainListComponent, VillainDetailComponent],
+//     exports: [RouterModule],
+// })
+// export class VillainsModule {}

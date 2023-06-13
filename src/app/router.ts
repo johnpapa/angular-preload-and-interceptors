@@ -11,18 +11,18 @@ export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'movies' },
   {
     path: 'movies',
-    loadChildren: () => import('./movies/movies.module').then((m) => m.MoviesModule),
+    loadChildren: () => import('./movies/routes').then((m) => m.routes),
     data: { preload: true },
   },
   {
     path: 'heroes',
-    loadChildren: () => import('./heroes/heroes.module').then((m) => m.HeroesModule),
+    loadChildren: () => import('./heroes/routes').then((m) => m.routes),
     canActivate: [isAuthenticatedGuard],
     data: { preload: true },
   },
   {
     path: 'villains',
-    loadChildren: () => import('./villains/villains.module').then((m) => m.VillainsModule),
+    loadChildren: () => import('./villains/routes').then((m) => m.routes),
     /**
      * Remove the guard and you can route to villains,
      * but you still can't get to the data unless you are logged in
@@ -32,13 +32,13 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
+    loadChildren: () => import('./admin/routes').then((m) => m.routes),
     canMatch: [authLoadGuard],
     // data: { preload: true },
   },
   {
     path: 'about',
-    loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
+    loadChildren: () => import('./about/routes').then((m) => m.routes),
   },
   { path: 'signin', component: SignInComponent },
   { path: 'authfailed', component: AuthFailedComponent },

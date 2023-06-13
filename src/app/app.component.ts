@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { BusyService } from './core/busy.service';
 import { delay, observeOn } from 'rxjs/operators';
 import { asapScheduler } from 'rxjs';
+import { RouterOutlet } from '@angular/router';
+import { NavComponent } from './core/components/nav.component';
+import { HeaderBarComponent } from './core/components/header-bar.component';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +24,8 @@ import { asapScheduler } from 'rxjs';
       </div>
     </div>
   `,
+  standalone: true,
+  imports: [HeaderBarComponent, NavComponent, RouterOutlet],
 })
 export class AppComponent {
   busy = false;

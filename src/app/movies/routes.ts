@@ -5,15 +5,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { MovieListComponent } from './movie-list.component';
 import { MoviesComponent } from './movies.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: MoviesComponent,
   },
 ];
 
-@NgModule({
-    imports: [CommonModule, RouterModule.forChild(routes), MoviesComponent, MovieListComponent],
-    exports: [RouterModule],
-})
-export class MoviesModule {}
+// @NgModule({
+//     imports: [CommonModule, RouterModule.forChild(routes), MoviesComponent, MovieListComponent],
+//     exports: [RouterModule],
+// })
+// export class MoviesModule {}
