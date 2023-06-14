@@ -2,10 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Hero } from '../core';
 import { HeroService } from './hero.service';
+import { ModalComponent } from '../shared/modal.component';
+import { HeroDetailComponent } from './hero-detail.component';
+import { HeroListComponent } from './hero-list.component';
+import { NgIf, AsyncPipe } from '@angular/common';
+import { ListHeaderComponent } from '../shared/list-header.component';
 
 @Component({
-  selector: 'app-heroes',
-  template: `
+    selector: 'app-heroes',
+    template: `
     <div class="content-container">
       <app-list-header
         title="Heroes"
@@ -38,6 +43,15 @@ import { HeroService } from './hero.service';
       ></app-modal>
     </div>
   `,
+    standalone: true,
+    imports: [
+        ListHeaderComponent,
+        NgIf,
+        HeroListComponent,
+        HeroDetailComponent,
+        ModalComponent,
+        AsyncPipe,
+    ],
 })
 export class HeroesComponent implements OnInit {
   selected: Hero;

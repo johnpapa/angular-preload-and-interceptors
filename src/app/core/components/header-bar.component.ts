@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { HeaderBarLinksComponent } from './header-bar-links.component';
+import { HeaderBarBrandComponent } from './header-bar-brand.component';
 
 @Component({
-  selector: 'app-header-bar',
-  template: `
+    selector: 'app-header-bar',
+    template: `
     <header>
       <nav
         class="navbar has-background-dark is-dark"
@@ -14,5 +16,7 @@ import { Component } from '@angular/core';
       </nav>
     </header>
   `,
+    standalone: true,
+    imports: [HeaderBarBrandComponent, HeaderBarLinksComponent],
 })
 export class HeaderBarComponent {}

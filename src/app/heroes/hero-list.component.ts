@@ -1,9 +1,12 @@
 import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { Hero } from '../core';
+import { ButtonFooterComponent } from '../shared/button-footer.component';
+import { CardContentComponent } from '../shared/card-content.component';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-hero-list',
-  template: `
+    selector: 'app-hero-list',
+    template: `
     <ul class="list">
       <li *ngFor="let hero of heroes; trackBy: trackByHero; let i = index" role="presentation">
         <div class="card">
@@ -30,7 +33,13 @@ import { Hero } from '../core';
       </li>
     </ul>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        NgFor,
+        CardContentComponent,
+        ButtonFooterComponent,
+    ],
 })
 export class HeroListComponent {
   @Input() heroes: Hero[];

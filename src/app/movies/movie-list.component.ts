@@ -1,9 +1,11 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Movie } from '../core';
+import { CardContentComponent } from '../shared/card-content.component';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-movie-list',
-  template: `
+    selector: 'app-movie-list',
+    template: `
     <ul class="list">
       <li role="presentation" *ngFor="let movie of movies; trackBy: trackByMovie; let i = index">
         <div class="card">
@@ -15,7 +17,9 @@ import { Movie } from '../core';
       </li>
     </ul>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgFor, CardContentComponent],
 })
 export class MovieListComponent {
   @Input() movies: Movie[];

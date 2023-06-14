@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  template: `
+    template: `
     <div class="content-container">
       <div class="content-title-group">
         <h2 class="title">Auth Failed</h2>
@@ -14,5 +15,7 @@ import { Component } from '@angular/core';
       </div>
     </div>
   `,
+    standalone: true,
+    imports: [RouterLink],
 })
 export class AuthFailedComponent {}

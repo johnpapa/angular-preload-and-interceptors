@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-header-bar-links',
-  template: `
+    selector: 'app-header-bar-links',
+    template: `
     <div class="navbar-menu" id="navbarLinks">
       <div class="navbar-end">
         <div class="navbar-item">
@@ -22,12 +22,13 @@ import { Component } from '@angular/core';
       </div>
     </div>
   `,
-  styles: [
-    `
+    styles: [
+        `
       :host {
         width: 100%;
       }
     `,
-  ],
+    ],
+    standalone: true,
 })
 export class HeaderBarLinksComponent {}

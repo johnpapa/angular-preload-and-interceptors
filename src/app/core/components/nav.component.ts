@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { OnDemandPreloadService } from '../strategies';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  selector: 'app-nav',
-  template: `
+    selector: 'app-nav',
+    template: `
     <nav class="menu">
       <p class="menu-label">Menu</p>
       <ul class="menu-list">
@@ -51,6 +52,8 @@ import { OnDemandPreloadService } from '../strategies';
       </div>
     </nav>
   `,
+    standalone: true,
+    imports: [RouterLink, RouterLinkActive],
 })
 export class NavComponent {
   constructor(private preloadOnDemandService: OnDemandPreloadService) {}

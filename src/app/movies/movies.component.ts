@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Movie } from '../core';
 import { MovieService } from './movie.service';
+import { MovieListComponent } from './movie-list.component';
+import { NgIf, AsyncPipe } from '@angular/common';
+import { ListHeaderComponent } from '../shared/list-header.component';
 
 @Component({
-  selector: 'app-movies',
-  template: `
+    selector: 'app-movies',
+    template: `
     <div class="content-container">
       <app-list-header title="Movies" [showAdd]="false" (refresh)="getMovies()"></app-list-header>
       <div class="columns is-multiline is-variable">
@@ -15,6 +18,13 @@ import { MovieService } from './movie.service';
       </div>
     </div>
   `,
+    standalone: true,
+    imports: [
+        ListHeaderComponent,
+        NgIf,
+        MovieListComponent,
+        AsyncPipe,
+    ],
 })
 export class MoviesComponent implements OnInit {
   movies$: Observable<Movie[]>;
