@@ -3,12 +3,12 @@ import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { environment } from './environments/environment';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/router';
-import { RouterModule, provideRouter } from '@angular/router';
+import { NoPreloading, provideRouter, withPreloading } from '@angular/router';
 import { externalModules } from './app/build-specific';
 import { AppStoreModule } from './app/store/store.module';
 import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { httpInterceptorProviders, declarations, OnDemandPreloadStrategy } from './app/core';
+import { httpInterceptorProviders, OnDemandPreloadStrategy } from './app/core';
 
 if (environment.production) {
   enableProdMode();
@@ -16,15 +16,10 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(
-      BrowserModule,
-      RouterModule.forRoot(routes, { preloadingStrategy: OnDemandPreloadStrategy }),
-      AppStoreModule,
-      externalModules
-      // declarations
-    ),
+    importProvidersFrom(BrowserModule, AppStoreModule, externalModules),
     httpInterceptorProviders,
     provideHttpClient(withInterceptorsFromDi()),
+    provideRouter(routes, withPreloading(NoPreloading)),
     /**
      * Preloading strategies:
      *  - https://angular.io/guide/router#custom-preloading-strategy
