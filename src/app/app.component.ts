@@ -8,6 +8,8 @@ import { HeaderBarComponent } from './core/components/header-bar.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [HeaderBarComponent, NavComponent, RouterOutlet],
   template: `
     <div>
       <app-header-bar></app-header-bar>
@@ -24,8 +26,6 @@ import { HeaderBarComponent } from './core/components/header-bar.component';
       </div>
     </div>
   `,
-  standalone: true,
-  imports: [HeaderBarComponent, NavComponent, RouterOutlet],
 })
 export class AppComponent {
   busy = false;

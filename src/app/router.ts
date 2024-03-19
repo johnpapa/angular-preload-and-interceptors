@@ -12,13 +12,13 @@ export const routes: Routes = [
   {
     path: 'movies',
     loadChildren: () => import('./movies/routes').then((m) => m.routes),
-    data: { preload: true },
+    // data: { preload: true },
   },
   {
     path: 'heroes',
     loadChildren: () => import('./heroes/routes').then((m) => m.routes),
     canActivate: [isAuthenticatedGuard],
-    data: { preload: true },
+    // data: { preload: true },
   },
   {
     path: 'villains',

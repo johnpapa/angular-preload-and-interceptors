@@ -25,8 +25,6 @@ bootstrapApplication(AppComponent, {
     ),
     httpInterceptorProviders,
     provideHttpClient(withInterceptorsFromDi()),
-    // provideRouter(
-    //   routes
     /**
      * Preloading strategies:
      *  - https://angular.io/guide/router#custom-preloading-strategy
@@ -67,7 +65,5 @@ bootstrapApplication(AppComponent, {
      *  - npm i ngx-quicklink --save
      *  - https://github.com/mgechev/ngx-quicklink
      */
-    // { preloadingStrategy: OnDemandPreloadStrategy }
-    // ),
   ],
 }).catch((err) => console.error(err));
