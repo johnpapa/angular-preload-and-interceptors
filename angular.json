@@ -77,18 +77,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-preload:build"
+            "buildTarget": "angular-preload:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-preload:build:production"
+              "buildTarget": "angular-preload:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-preload:build"
+            "buildTarget": "angular-preload:build"
           }
         },
         "test": {
