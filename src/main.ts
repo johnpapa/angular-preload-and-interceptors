@@ -6,9 +6,11 @@ import { routes } from './app/router';
 import { NoPreloading, provideRouter, withPreloading } from '@angular/router';
 import { externalModules } from './app/build-specific';
 import { AppStoreModule } from './app/store/store.module';
-import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
+import { withInterceptorsFromDi, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { httpInterceptorProviders } from './app/core';
+import { LogHeadersFunctionalInterceptor } from './app/core/interceptors/log-headers.interceptor';
+import { BusyFunctionalInterceptor } from './app/core/interceptors/busy.interceptor';
 
 if (environment.production) {
   enableProdMode();
@@ -18,7 +20,10 @@ bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(BrowserModule, AppStoreModule, externalModules),
     httpInterceptorProviders,
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(
+      withInterceptors([LogHeadersFunctionalInterceptor, BusyFunctionalInterceptor]),
+      withInterceptorsFromDi()
+    ),
     provideRouter(routes, withPreloading(NoPreloading)),
     /**
      * Preloading strategies:
