@@ -11,11 +11,10 @@ import {
 import { Hero } from '../core';
 import { ButtonFooterComponent } from '../shared/button-footer.component';
 import { FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
 
 @Component({
-    selector: 'app-hero-detail',
-    template: `
+  selector: 'app-hero-detail',
+  template: `
     <div class="card edit-detail">
       <header class="card-header">
         <p class="card-header-title">
@@ -25,7 +24,8 @@ import { NgIf } from '@angular/common';
       </header>
       <div class="card-content">
         <div class="content">
-          <div class="field" *ngIf="editingHero.id">
+          @if(editingHero.id){
+          <div class="field">
             <label class="label" for="id"> id </label>
             <input
               name="id"
@@ -36,6 +36,7 @@ import { NgIf } from '@angular/common';
               readOnly
             />
           </div>
+          }
           <div class="field">
             <label class="label" for="name"> name </label>
             <input
@@ -78,13 +79,9 @@ import { NgIf } from '@angular/common';
       </footer>
     </div>
   `,
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [
-        NgIf,
-        FormsModule,
-        ButtonFooterComponent,
-    ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [FormsModule, ButtonFooterComponent],
 })
 export class HeroDetailComponent implements OnChanges {
   @Input() hero: Hero;

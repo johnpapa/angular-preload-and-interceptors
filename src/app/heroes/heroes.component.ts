@@ -5,12 +5,12 @@ import { HeroService } from './hero.service';
 import { ModalComponent } from '../shared/modal.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroListComponent } from './hero-list.component';
-import { NgIf, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ListHeaderComponent } from '../shared/list-header.component';
 
 @Component({
-    selector: 'app-heroes',
-    template: `
+  selector: 'app-heroes',
+  template: `
     <div class="content-container">
       <app-list-header
         title="Heroes"
@@ -18,20 +18,23 @@ import { ListHeaderComponent } from '../shared/list-header.component';
         (refresh)="getHeroes()"
       ></app-list-header>
       <div class="columns is-multiline is-variable">
-        <div class="column is-8" *ngIf="heroes$ | async as heroes">
-          <app-hero-list
-            *ngIf="!selected"
-            [heroes]="heroes"
-            (selected)="select($event)"
-            (deleted)="askToDelete($event)"
-          ></app-hero-list>
+        @if(heroes$ | async; as heroes){
+        <div class="column is-8">
+          @if(selected){
           <app-hero-detail
-            *ngIf="selected"
             [hero]="selected"
             (unselect)="clear()"
             (save)="save($event)"
           ></app-hero-detail>
+          } @else {
+          <app-hero-list
+            [heroes]="heroes"
+            (selected)="select($event)"
+            (deleted)="askToDelete($event)"
+          ></app-hero-list>
+          }
         </div>
+        }
       </div>
 
       <app-modal
@@ -43,15 +46,8 @@ import { ListHeaderComponent } from '../shared/list-header.component';
       ></app-modal>
     </div>
   `,
-    standalone: true,
-    imports: [
-        ListHeaderComponent,
-        NgIf,
-        HeroListComponent,
-        HeroDetailComponent,
-        ModalComponent,
-        AsyncPipe,
-    ],
+  standalone: true,
+  imports: [ListHeaderComponent, HeroListComponent, HeroDetailComponent, ModalComponent, AsyncPipe],
 })
 export class HeroesComponent implements OnInit {
   selected: Hero;
