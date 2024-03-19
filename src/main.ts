@@ -8,7 +8,7 @@ import { externalModules } from './app/build-specific';
 import { AppStoreModule } from './app/store/store.module';
 import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { httpInterceptorProviders, OnDemandPreloadStrategy } from './app/core';
+import { httpInterceptorProviders } from './app/core';
 
 if (environment.production) {
   enableProdMode();
