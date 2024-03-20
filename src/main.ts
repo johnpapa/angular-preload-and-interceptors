@@ -3,7 +3,7 @@ import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { environment } from './environments/environment';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/router';
-import { NoPreloading, provideRouter, withPreloading } from '@angular/router';
+import { NoPreloading, provideRouter, withDebugTracing, withPreloading } from '@angular/router';
 import { externalModules } from './app/build-specific';
 import { AppStoreModule } from './app/store/store.module';
 import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
@@ -19,7 +19,14 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(BrowserModule, AppStoreModule, externalModules),
     httpInterceptorProviders,
     provideHttpClient(withInterceptorsFromDi()),
-    provideRouter(routes, withPreloading(NoPreloading)),
+    provideRouter(
+      // Provide the routes
+      routes,
+      // Enable route tracing
+      // withDebugTracing(),
+      // Set the preloading strategy
+      withPreloading(NoPreloading)
+    ),
     /**
      * Preloading strategies:
      *  - https://angular.io/guide/router#custom-preloading-strategy
